@@ -10,7 +10,7 @@ import { Bill } from '../model/bill';
 })
 export class BillService {
 
-  JsonUrl: string = "http://localhost:3000/bill";
+  JsonUrl: string = "http://localhost:3000/bills";
 
   list$: BehaviorSubject<Bill[]> = new BehaviorSubject<Bill[]>([]);
 
