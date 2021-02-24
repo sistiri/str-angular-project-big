@@ -9,6 +9,10 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { BillService } from './service/bill.service';
 
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { BillService } from './service/bill.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [
     BillService,
