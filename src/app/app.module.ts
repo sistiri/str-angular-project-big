@@ -7,6 +7,12 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { BillService } from './service/bill.service';
+
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +24,14 @@ import { FooterComponent } from './common/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    BillService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
