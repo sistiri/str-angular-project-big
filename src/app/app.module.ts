@@ -7,6 +7,8 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { BillService } from './service/bill.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './common/footer/footer.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    BillService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
