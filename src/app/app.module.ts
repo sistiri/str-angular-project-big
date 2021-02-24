@@ -8,6 +8,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { BillService } from './service/bill.service';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { BillService } from './service/bill.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     BillService,
