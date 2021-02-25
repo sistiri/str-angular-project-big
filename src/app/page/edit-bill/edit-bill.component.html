@@ -2,8 +2,8 @@
   <div *ngIf="(bills$ | async) as bill" class="col-6 offset-3">
     <form #billForm="ngForm" (ngSubmit)="onUpdate(billForm, bill); clicked=true">
       <div class="form-group">
-        <label for="">Name</label>
-        <input name="name" [(ngModel)]="bill.orderID" type="text"
+        <label for="">id</label>
+        <input name="id" [(ngModel)]="Bill.id" type="text"
           class="form-control" pattern=".{8,25}" required>
         <div [hidden]="billForm.controls.name?.valid" class="error-message">
           The name must be minimum 8, maximum 25 characters.

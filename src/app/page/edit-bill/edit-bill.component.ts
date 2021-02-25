@@ -3,7 +3,7 @@ import { BillService } from 'src/app/service/bill.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Bill } from 'src/app/model/bill';
+import { Bills } from 'src/app/model/bills';
 import { NgForm } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +15,7 @@ import { NgModule } from '@angular/core';
 export class EditBillComponent implements OnInit {
   [x: string]: any;
 
-  bills$: Observable<Bill> = this.activatedRoute.params.pipe(
+  bills$: Observable<Bills> = this.activatedRoute.params.pipe(
     switchMap( params => this.billService.get(params.id) )
   );
 

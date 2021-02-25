@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,9 +13,12 @@ import { BillService } from './service/bill.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { EditBillComponent } from './page/edit-bill/edit-bill.component';
-import { FormsModule } from '@angular/forms';
+import { OrderListComponent } from './page/order-list/order-list.component';
+import { ProductListComponent } from './page/product-list/product-list.component';
 
+import { OrderModule } from 'ngx-order-pipe';
+import { InfoCardComponent } from './common/info-card/info-card.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +27,18 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    EditBillComponent
+    OrderListComponent,
+    ProductListComponent,
+    InfoCardComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    FormsModule,
+    OrderModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-center',
