@@ -9,9 +9,9 @@ import { Order } from '../model/order';
 
 export class OrderService {
 
-  orderApiUrl: string = 'http://localhost:3000/orders'
+  orderApiUrl: string = 'http://localhost:3000/orders';
 
-  orderList$: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
+  list$: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
 
   constructor(
     private http: HttpClient,
@@ -19,7 +19,7 @@ export class OrderService {
 
   getAll(): void {
     this.http.get<Order[]>(this.orderApiUrl).subscribe(
-      orders => this.orderList$.next(orders)
+      orders => this.list$.next(orders)
     );
   }
 
