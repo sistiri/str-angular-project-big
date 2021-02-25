@@ -13,6 +13,7 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./edit-bill.component.scss']
 })
 export class EditBillComponent implements OnInit {
+  [x: string]: any;
 
   bills$: Observable<Bill> = this.activatedRoute.params.pipe(
     switchMap( params => this.billService.get(params.id) )
