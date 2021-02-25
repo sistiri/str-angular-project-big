@@ -5,6 +5,7 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'product/:id',
     component: EditProductComponent
+  },
+
+  {
+    path: 'order/:id',
+    component: EditOrderComponent
   },
 
   {

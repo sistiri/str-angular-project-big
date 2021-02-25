@@ -21,7 +21,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { BillListComponent } from './page/bill-list/bill-list.component';
-import { EditOrderComponent } from './common/edit-order/edit-order.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
 
 
 
