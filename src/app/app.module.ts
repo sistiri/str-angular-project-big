@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { OrderListComponent } from './page/order-list/order-list.component';
+import { BillListComponent } from './page/bill-list/bill-list.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { OrderListComponent } from './page/order-list/order-list.component';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    OrderListComponent
+    OrderListComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
