@@ -14,6 +14,10 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { OrderListComponent } from './page/order-list/order-list.component';
+import { ProductListComponent } from './page/product-list/product-list.component';
+
+import { OrderModule } from 'ngx-order-pipe';
+import { InfoCardComponent } from './common/info-card/info-card.component';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { OrderListComponent } from './page/order-list/order-list.component';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    OrderListComponent
+    OrderListComponent,
+    ProductListComponent,
+    InfoCardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,7 @@ import { OrderListComponent } from './page/order-list/order-list.component';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    OrderModule,
   ],
   providers: [
     BillService,
