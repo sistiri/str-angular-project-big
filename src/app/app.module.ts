@@ -19,6 +19,7 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { OrderModule } from 'ngx-order-pipe';
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { BillListComponent } from './page/bill-list/bill-list.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     OrderListComponent,
     ProductListComponent,
     InfoCardComponent,
-    EditProductComponent
+    EditProductComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
