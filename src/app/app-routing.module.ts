@@ -29,6 +29,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'bills',
+    component: BillListComponent
+  },
+
+  {
     path: '',
     component: DashboardComponent
   },
