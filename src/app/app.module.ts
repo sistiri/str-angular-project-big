@@ -12,6 +12,7 @@ import { BillService } from './service/bill.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 
 
 @NgModule({
@@ -20,14 +21,17 @@ import { ToastrModule } from 'ngx-toastr';
     SidebarComponent,
     NavbarComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    EditBillComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,}),
   ],
   providers: [
     BillService,

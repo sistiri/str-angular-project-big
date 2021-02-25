@@ -1,0 +1,32 @@
+<div class="row">
+  <div *ngIf="(bills$ | async) as bill" class="col-6 offset-3">
+    <form #billForm="ngForm" (ngSubmit)="onUpdate(billForm, bill); clicked=true">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input name="name" [(ngModel)]="bill.orderID" type="text"
+          class="form-control" pattern=".{8,25}" required>
+        <div [hidden]="billForm.controls.name?.valid" class="error-message">
+          The name must be minimum 8, maximum 25 characters.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Date</label>
+        <input name="date" [(ngModel)]="bill.amount" type="text"
+          class="form-control" pattern="^([0-9]|[1-2][0-9]|3[0-1])\/([0-9]|1[0-2])\/\d{4}" required>
+          <div [hidden]="billForm.controls.date?.valid" class="error-message">
+            The date must be (d)d/(m)m/yyyy characters.
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="">Time</label>
+        <input name="time" [(ngModel)]="bill.status" type="text" class="form-control" pattern="^(0[0-9]|1[0-2]):[0-5][0-9] (am|pm)$" required>
+        <div [hidden]="billForm.controls.time?.valid" class="error-message">
+          The time form must be hh:mm (am or pm) characters.
+        </div>
+      </div>
+      <button [disabled]="billForm.invalid" type="submit" class="btn btn-primary btn-block btn-lg">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>
