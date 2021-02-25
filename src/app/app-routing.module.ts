@@ -20,6 +20,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'bill',
+    component: BillListComponent
+  },
+
+  {
     path: 'product/:id',
     component: EditProductComponent
   },

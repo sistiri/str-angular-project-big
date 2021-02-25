@@ -19,7 +19,8 @@ import { ProductListComponent } from './page/product-list/product-list.component
 
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
-import { OrderModule } from 'ngx-order-pipe';
+import { BillListComponent } from './page/bill-list/bill-list.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OrderModule } from 'ngx-order-pipe';
     OrderListComponent,
     ProductListComponent,
     InfoCardComponent,
-    EditProductComponent
+    EditProductComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { OrderModule } from 'ngx-order-pipe';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    OrderModule,
+
   ],
   providers: [
     BillService,
