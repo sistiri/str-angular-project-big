@@ -19,6 +19,7 @@ import { ProductListComponent } from './page/product-list/product-list.component
 
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-
+    OrderModule,
   ],
   providers: [
     BillService,
