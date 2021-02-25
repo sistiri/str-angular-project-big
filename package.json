@@ -27,6 +27,7 @@
     "chartist": "^0.11.4",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
+    "ngx-order-pipe": "^2.1.1",
     "ngx-toastr": "^13.2.0",
     "perfect-scrollbar": "^1.5.0",
     "popper.js": "^1.16.1",

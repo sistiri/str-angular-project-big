@@ -14,8 +14,16 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { OrderListComponent } from './page/order-list/order-list.component';
+<<<<<<< HEAD
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './common/edit-order/edit-order.component';
+=======
+import { ProductListComponent } from './page/product-list/product-list.component';
+
+import { OrderModule } from 'ngx-order-pipe';
+import { InfoCardComponent } from './common/info-card/info-card.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
+>>>>>>> 905b88fe4c44e5258869a148e8fc5d31e0846494
 
 
 @NgModule({
@@ -26,8 +34,14 @@ import { EditOrderComponent } from './common/edit-order/edit-order.component';
     DashboardComponent,
     FooterComponent,
     OrderListComponent,
+<<<<<<< HEAD
     BillListComponent,
     EditOrderComponent
+=======
+    ProductListComponent,
+    InfoCardComponent,
+    EditProductComponent
+>>>>>>> 905b88fe4c44e5258869a148e8fc5d31e0846494
   ],
   imports: [
     BrowserModule,
@@ -36,6 +50,7 @@ import { EditOrderComponent } from './common/edit-order/edit-order.component';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    OrderModule,
   ],
   providers: [
     BillService,
