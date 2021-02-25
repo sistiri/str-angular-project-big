@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
 
-import { OrderModule } from 'ngx-order-pipe';
+
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 
@@ -38,12 +38,8 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    OrderModule,
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-top-center',
-      preventDuplicates: true,
-    }),
+    ToastrModule.forRoot(),
+
   ],
   providers: [
     BillService,

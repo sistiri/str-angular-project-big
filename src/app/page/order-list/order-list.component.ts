@@ -24,9 +24,9 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
     this.orderService.getAll();
     // this.customerService.getAll();
-    
+
   }
 
-  
+
 
 }

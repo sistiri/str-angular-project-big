@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BillListComponent } from './page/bill-list/bill-list.component';
+
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
@@ -8,10 +8,6 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
 
 const routes: Routes = [
 
-  {
-    path: 'bills',
-    component: BillListComponent
-  },
   {
     path: 'orders',
     component: OrderListComponent
