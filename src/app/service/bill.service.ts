@@ -1,22 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
-import { tap } from 'rxjs/operators';
+//import { BehaviorSubject, Observable } from 'rxjs';
+//import { ToastrService } from 'ngx-toastr';
+//import { tap } from 'rxjs/operators';
+//import { Bill } from '../model/bill';
+import { Order } from '../model/order';
+import { BaseService } from './base.service';
+import { ConfigService } from './config.service';
 import { Bill } from '../model/bill';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BillService {
+export class BillService extends BaseService<Bill> {
 
-  JsonUrl: string = "http://localhost:3000/bills";
+ //JsonUrl: string = "http://localhost:3000/bills";
 
-  list$: BehaviorSubject<Bill[]> = new BehaviorSubject<Bill[]>([]);
+  //list$: BehaviorSubject<Bill[]> = new BehaviorSubject<Bill[]>([]);
 
-  constructor( private http: HttpClient, private toastr: ToastrService ) { }
+  constructor(
+    public config: ConfigService,
+    public http: HttpClient,
+    ) {
+      super(config, http, 'bills')
+     }
 
-  getAll(): void {
+  /*getAll(): void {
     this.list$.next([]);
     this.http.get<Bill[]>(this.JsonUrl).subscribe(
       products => this.list$.next(products)
@@ -58,5 +67,5 @@ export class BillService {
     );
     this.toastr.warning('The Bill has been deleted.', 'DELETED');
   }
-
+*/
 }
