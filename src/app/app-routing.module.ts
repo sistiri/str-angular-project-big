@@ -3,20 +3,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
+import { ProductListComponent } from './page/product-list/product-list.component';
+import { EditProductComponent } from './page/edit-product/edit-product.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DashboardComponent
-  },
+
   {
     path: 'orders',
     component: OrderListComponent
   },
+
   {
-    path: 'bills',
-    component: BillListComponent
+    path: 'product',
+    component: ProductListComponent
   },
+
+  {
+    path: 'product/:id',
+    component: EditProductComponent
+  },
+
+  {
+    path: '',
+    component: DashboardComponent
+  },
+
+
 ];
 
 @NgModule({
