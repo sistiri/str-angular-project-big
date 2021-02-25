@@ -36,6 +36,7 @@ import { EditOrderComponent } from './common/edit-order/edit-order.component';
     ProductListComponent,
     InfoCardComponent,
     EditProductComponent,
+    EditOrderComponent,
     BillListComponent
   ],
   imports: [
