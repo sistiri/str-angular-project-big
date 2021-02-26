@@ -37,7 +37,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'bills',
+    path: 'bill/:id',
     component: BillListComponent
   },
 
@@ -49,10 +49,6 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
-  },
-  {
-    path: 'bills',
-    component: BillListComponent
   },
 
 ];
