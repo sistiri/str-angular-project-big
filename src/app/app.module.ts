@@ -23,6 +23,7 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -50,6 +51,7 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     FormsModule,
+    OrderModule
   ],
   providers: [
     BillService,
