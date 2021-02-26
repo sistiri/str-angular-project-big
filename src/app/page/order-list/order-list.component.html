@@ -16,14 +16,14 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class="">
-                        <!-- <tr>
-                            <th>ID</th>
-                            <th>Customer ID</th>
-                            <th>Product ID</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr> -->
+                            <!-- <tr>
+                                <th>ID</th>
+                                <th>Customer ID</th>
+                                <th>Product ID</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr> -->
                         <tr class="bcolor">
                             <th [class.active]="order === 'id'"
                               (click)="setOrder('id')">ID
@@ -64,11 +64,11 @@
                             <td>{{ order.status }}</td>
                             <td>
                                 <div class="btn-group">
-                                    <!-- <button [routerLink]="[order.id]" class="btn btn-warning">
+                                    <button [routerLink]="[order.id]" class="btn btn-warning">
                                         <span class="material-icons">
                                             create
-                                        </span> -->
-                                    <!-- </button> -->
+                                        </span>
+                                    </button>
                                     <button (click)="onDelete(order)" class="btn btn-danger">
                                         <span class="material-icons">
                                             delete_forever
