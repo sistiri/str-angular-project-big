@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 //import { ToastrService } from 'ngx-toastr';
 //import { tap } from 'rxjs/operators';
 //import { Bill } from '../model/bill';
-import { Order } from '../model/order';
+
 import { BaseService } from './base.service';
 import { ConfigService } from './config.service';
 import { Bill } from '../model/bill';
