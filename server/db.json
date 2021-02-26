@@ -939,6 +939,36 @@
       "price": 12,
       "featured": false,
       "active": true
+    },
+    {
+      "id": 100,
+      "name": "00Test",
+      "type": "Crime|Drama",
+      "catID": "2",
+      "description": "hh",
+      "price": "1200",
+      "featured": true,
+      "active": false
+    },
+    {
+      "id": 101,
+      "name": "00Test2",
+      "type": "Comedy",
+      "catID": "1",
+      "description": "ddd",
+      "price": "1200",
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": 102,
+      "name": "Próba",
+      "type": "Comedy",
+      "catID": "1",
+      "description": "Haha",
+      "price": 11,
+      "featured": false,
+      "active": true
     }
   ],
   "customers": [
