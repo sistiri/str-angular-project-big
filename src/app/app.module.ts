@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,13 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { BillListComponent } from './page/bill-list/bill-list.component';
+<<<<<<< HEAD
+=======
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
+import { CustomerListComponent } from './page/customer-list/customer-list.component';
+
+
+>>>>>>> origin/dev
 
 
 @NgModule({
@@ -33,7 +41,13 @@ import { BillListComponent } from './page/bill-list/bill-list.component';
     ProductListComponent,
     InfoCardComponent,
     EditProductComponent,
+<<<<<<< HEAD
     BillListComponent
+=======
+    EditOrderComponent,
+    BillListComponent,
+    CustomerListComponent
+>>>>>>> origin/dev
   ],
   imports: [
     BrowserModule,
@@ -42,7 +56,12 @@ import { BillListComponent } from './page/bill-list/bill-list.component';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+<<<<<<< HEAD
 
+=======
+    OrderModule,
+    FormsModule,
+>>>>>>> origin/dev
   ],
   providers: [
     BillService,
