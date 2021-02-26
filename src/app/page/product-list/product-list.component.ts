@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProducserviceService } from '../../service/producservice.service';
 import { Product } from '../../model/product';
 import { BehaviorSubject } from 'rxjs';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -18,6 +18,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService : ProducserviceService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -34,10 +35,15 @@ export class ProductListComponent implements OnInit {
 
   onDelete(product: Product) {
 
-    this.productService.remove(product).subscribe(r => {
+    this.productService.remove(product).subscribe(() => {
       this.productService.getAll();
+      this.toastr.error('The item was deleted successfully');
     });
   }
+
+
+
+
 
   onFilter(key:string, event: Event): void {
     const value = (event.target as HTMLInputElement).value;
