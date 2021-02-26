@@ -34,11 +34,12 @@ export class ProductListComponent implements OnInit {
   }
 
   onDelete(product: Product) {
-
-    this.productService.remove(product).subscribe(() => {
-      this.productService.getAll();
-      this.toastr.error('The item was deleted successfully');
-    });
+    if (confirm("Are you sure you want to delete the item?")) {
+      this.productService.remove(product).subscribe(() => {
+        this.productService.getAll();
+        this.toastr.error('The item was deleted successfully');
+      });
+    }
   }
 
 

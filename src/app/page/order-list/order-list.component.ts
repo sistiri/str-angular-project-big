@@ -31,8 +31,8 @@ export class OrderListComponent implements OnInit {
     this.order = value;
   }
 
-  onDelete(product: Order) {
-    this.orderService.remove(product).subscribe(r => {
+  onDelete(order: Order) {
+    this.orderService.remove(order).subscribe(r => {
       this.orderService.getAll();
     });
   }
