@@ -27,7 +27,6 @@ import { OrderModule } from 'ngx-order-pipe';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +50,7 @@ import { OrderModule } from 'ngx-order-pipe';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     FormsModule,
-    OrderModule
+    OrderModule,
   ],
   providers: [
     BillService,
