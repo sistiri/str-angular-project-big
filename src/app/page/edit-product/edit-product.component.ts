@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProducserviceService } from '../../service/producservice.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../model/product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-product',
@@ -15,6 +16,7 @@ export class EditProductComponent implements OnInit {
   constructor(
     private productService: ProducserviceService,
     private rout: ActivatedRoute,
+    private toastr: ToastrService
   ) {
 
     this.rout.params.subscribe( params => {
@@ -23,6 +25,10 @@ export class EditProductComponent implements OnInit {
       });
     });
 
+  }
+
+  onSave() {
+    this.toastr.success('Sikeres mentés!');
   }
 
   ngOnInit(): void {

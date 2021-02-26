@@ -331,16 +331,6 @@
       "active": false
     },
     {
-      "id": 36,
-      "name": "12 Angry Men",
-      "type": "Crime|Drama",
-      "catID": 3,
-      "description": "leo odio porttitor id consequat in consequat ut nulla sed",
-      "price": 9,
-      "featured": false,
-      "active": true
-    },
-    {
       "id": 37,
       "name": "Just My Luck",
       "type": "Comedy|Romance",
@@ -738,16 +728,6 @@
       "description": "sem duis aliquam convallis nunc proin at turpis a pede",
       "price": 12,
       "featured": false,
-      "active": false
-    },
-    {
-      "id": 78,
-      "name": "Alice's Restaurant",
-      "type": "Comedy|Drama",
-      "catID": 4,
-      "description": "vestibulum quam sapien varius ut blandit non interdum in ante",
-      "price": 13,
-      "featured": true,
       "active": false
     },
     {
