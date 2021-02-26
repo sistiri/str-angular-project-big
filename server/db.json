@@ -111,16 +111,6 @@
       "active": false
     },
     {
-      "id": 13,
-      "name": "Gilded Lily, The",
-      "type": "Comedy|Romance",
-      "catID": 3,
-      "description": "sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc",
-      "price": 12,
-      "featured": true,
-      "active": true
-    },
-    {
       "id": 14,
       "name": "Good Old Daze (Le péril jeune)",
       "type": "Comedy|Drama",
@@ -967,16 +957,6 @@
       "catID": 3,
       "description": "sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in",
       "price": 12,
-      "featured": false,
-      "active": true
-    },
-    {
-      "id": 100,
-      "name": "Man from Planet X, The",
-      "type": "Horror|Romance|Sci-Fi",
-      "catID": 1,
-      "description": "amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus",
-      "price": 13,
       "featured": false,
       "active": true
     }

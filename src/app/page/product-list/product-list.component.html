@@ -2,8 +2,6 @@
   <div class="card card-plain">
       <button  [routerLink]="[0]" class="btn btn-danger btn-block">
           <span class="mat-button-wrapper">Add new product</span>
-          <!-- <div class="mat-button-ripple mat-ripple" matripple=""></div> -->
-          <!-- <div class="mat-button-focus-overlay"></div> -->
       </button>
   </div>
   <div class="card card-plain">
@@ -16,7 +14,7 @@
           <div class="table-responsive">
               <table class="table table-hover">
                   <thead class="">
-                      <tr>
+                      <tr class="bcolor">
                           <th [class.active]="order === 'id'"
                             (click)="setOrder('id')">ID:
                             <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
@@ -55,7 +53,7 @@
                       </tr>
 
                       <tr>
-                        <th><input (keyup)="onFilter('id', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                        <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Filter"></th>
                         <th><input (keyup)="onFilter('name', $event)" class="form-control" type="text" placeholder="Filter"></th>
                         <th><input (keyup)="onFilter('type', $event)" class="form-control" type="text" placeholder="Filter"></th>
                         <th><input (keyup)="onFilter('description', $event)" class="form-control" type="text" placeholder="Filter"></th>
