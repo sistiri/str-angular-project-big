@@ -19,6 +19,7 @@ import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
+import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProductListComponent } from './page/product-list/product-list.component
     OrderListComponent,
     ProductListComponent,
     InfoCardComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
