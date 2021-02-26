@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,10 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { OrderModule } from 'ngx-order-pipe';
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { BillListComponent } from './page/bill-list/bill-list.component';
+import { EditOrderComponent } from './page/edit-order/edit-order.component';
+
+
 
 
 @NgModule({
@@ -31,7 +36,9 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     OrderListComponent,
     ProductListComponent,
     InfoCardComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditOrderComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,7 @@ import { EditProductComponent } from './page/edit-product/edit-product.component
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     OrderModule,
+    FormsModule,
   ],
   providers: [
     BillService,

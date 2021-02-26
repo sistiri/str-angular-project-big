@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-apiUrl = 'http://localhost:3000'
+apiUrl: string = 'http://localhost:3000'
 
 
   constructor() { }
