@@ -22,6 +22,7 @@ import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
+import { CustomerListComponent } from './page/customer-list/customer-list.component';
 
 
 
@@ -38,7 +39,8 @@ import { EditOrderComponent } from './page/edit-order/edit-order.component';
     InfoCardComponent,
     EditProductComponent,
     EditOrderComponent,
-    BillListComponent
+    BillListComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
