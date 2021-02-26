@@ -3,7 +3,6 @@ import { ProducserviceService } from '../../service/producservice.service';
 import { Product } from '../../model/product';
 import { BehaviorSubject } from 'rxjs';
 
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -34,7 +33,7 @@ export class ProductListComponent implements OnInit {
 
   onDelete(product: Product) {
 
-    this.productService.remove(product).subscribe(r => {
+    this.productService.remove(product).subscribe(() => {
       this.productService.getAll();
     });
   }

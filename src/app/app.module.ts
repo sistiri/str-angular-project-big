@@ -17,13 +17,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
 
-import { OrderModule } from 'ngx-order-pipe';
+
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
-
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -49,8 +49,8 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    OrderModule,
     FormsModule,
+    OrderModule,
   ],
   providers: [
     BillService,
