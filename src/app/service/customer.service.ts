@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Customer } from '../model/customer';
+import { ToastrService } from 'ngx-toastr';
+import { tap } from 'rxjs/operators';
+import { BaseService } from './base.service';
+import { ConfigService } from './config.service';
 
 
 @Injectable({
@@ -11,7 +15,9 @@ export class CustomerService {
 
   httpURL: string = 'http://localhost:3000/customers';
 
-  constructor(private http: HttpClient) { }
+  constructor(public config: ConfigService, public http: HttpClient) {
+    //super(config, http, 'customers')
+  }
 
   getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.httpURL);
