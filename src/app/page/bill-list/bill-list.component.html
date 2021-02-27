@@ -36,7 +36,8 @@
                       (click)="setOrder('description')">Status:
                       <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                       </th>
-
+                      <th></th>
+                      <th></th>
                   </tr>
 
                   <tr>
@@ -60,11 +61,12 @@
                           <td>{{ bill.status }}</td>
                           <td>
                               <div class="btn-group">
-                                  <button  [routerLink]="[bill.id]" class="btn btn-warning">
+                                  <button  [routerLink]="[bill.id]" class="btn btn-warning mr-3">
                                       <span class="material-icons">
                                           create
                                       </span>
                                   </button>
+
                                   <button (click)="onDelete(bill)" class="btn btn-danger">
                                       <span class="material-icons">
                                           delete_forever
