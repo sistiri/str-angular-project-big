@@ -1670,10 +1670,10 @@
   "orders": [
     {
       "id": 1,
-      "customerID": 77,
-      "productID": 44,
-      "amount": 5,
-      "status": "new"
+      "customerID": 1,
+      "productID": 1,
+      "amount": 10,
+      "status": "shipped"
     },
     {
       "id": 2,
