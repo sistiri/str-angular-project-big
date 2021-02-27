@@ -47,14 +47,14 @@ export class EditProductComponent implements OnInit {
     if (this.product.id) {
 
       this.productService.update(this.product).subscribe((p: Product) => {
-        this.toastr.success('Sikeres mentés!');
+        this.toastr.success('The item was saved successfully!');
         this.router.navigate(['product']);
       });
 
     } else {
 
       this.productService.create(this.product).subscribe((p: Product) => {
-        this.toastr.success('Sikeres mentés!');
+        this.toastr.success('The item was saved successfully!');
         this.router.navigate(['product']);
       });
 
