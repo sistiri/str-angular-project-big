@@ -55,7 +55,7 @@ import { OrderModule } from 'ngx-order-pipe';
     OrderModule,
   ],
   providers: [
-    BillService,
+
   ],
   bootstrap: [AppComponent]
 })

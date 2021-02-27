@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Bill } from 'src/app/model/bill';
 import { BillService } from 'src/app/service/bill.service';
 
@@ -15,15 +16,34 @@ export class EditBillComponent implements OnInit {
   constructor(
     private billService: BillService,
     private rout: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.rout.params.subscribe( params => {
-      this.billService.get(params.id).forEach( order => {
-        this.bill = order;
-      })
-    })
-   }
+      if (params.id != '0'){
+      this.billService.get(params.id).forEach( bill => {
+        this.bill = bill;
+      });
+    }
+   });
+  }
+
+  onSave() {
+    if (this.bill.id) {
+      this.billService.update(this.bill).subscribe((p: Bill) => {
+        this.toastr.success('Sikeres mentés!');
+        this.router.navigate(['bill']);
+      });
+
+    }else{
+      this.billService.create(this.bill).subscribe((p: Bill) => {
+        this.toastr.success('Sikeres mentés!');
+        this.router.navigate(['bill']);
+      });
+    }
+  }
+
+
 
   ngOnInit(): void {}
-
-
 }
