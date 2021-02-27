@@ -27,6 +27,7 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
 import { OrderModule } from 'ngx-order-pipe';
 import { StatusCardComponent } from './common/status-card/status-card.component';
 import { TableCardComponent } from './common/table-card/table-card.component';
+import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 
 
 
@@ -45,6 +46,7 @@ import { TableCardComponent } from './common/table-card/table-card.component';
     EditCustomerComponent,
     EditOrderComponent,
     BillListComponent,
+    EditBillComponent,
     CustomerListComponent,
     StatusCardComponent,
     TableCardComponent,
