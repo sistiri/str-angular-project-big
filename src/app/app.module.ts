@@ -25,6 +25,7 @@ import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 
 
 
@@ -42,6 +43,7 @@ import { OrderModule } from 'ngx-order-pipe';
     EditCustomerComponent,
     EditOrderComponent,
     BillListComponent,
+    EditBillComponent,
     CustomerListComponent
   ],
   imports: [
