@@ -1984,13 +1984,6 @@
       "status": "shipped"
     },
     {
-      "id": 46,
-      "customerID": 42,
-      "productID": 4,
-      "amount": 8,
-      "status": "new"
-    },
-    {
       "id": 47,
       "customerID": 19,
       "productID": 85,
