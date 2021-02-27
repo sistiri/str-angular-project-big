@@ -46,4 +46,15 @@ export class EditBillComponent implements OnInit {
 
 
   ngOnInit(): void {}
+
+
+  onsubmit(bill: Bill): void {
+    this.billService.update(bill).subscribe(
+      saved => {
+        this.billService.getAll();
+        this.toastr.success('Adatok elküldve!');
+        this.router.navigate(['bill'])
+      }
+    );
+  }
 }
