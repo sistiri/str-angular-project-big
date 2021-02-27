@@ -4,12 +4,40 @@
     <app-info-card
       [cardClass]="'card-header-warning'"
       [icon]="'content_copy'"
-      [content]="'Ez már Angular Card'"
+      [title]="'Number of active products'"
+      [content]="'Active: ' + infoData.activeProductCount"
       [footer]="'Get More Space...'"
     ></app-info-card>
 
 
   </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+
+    <app-info-card
+      [cardClass]="'card-header-danger'"
+      [icon]="'store'"
+      [title]="'Number of unpaid bills'"
+      [content]="'Unpaid: ' + infoData.unpaidBills"
+      [footer]="'Get More Space...'"
+    ></app-info-card>
+
+
+  </div>
+
+  <div class="col-lg-3 col-md-6 col-sm-6">
+
+    <app-info-card
+      [cardClass]="'card-header-danger'"
+      [icon]="'store'"
+      [title]="'Amount of unpaid bills'"
+      [content]="'Amount: $' + infoData.unpaidAmount"
+      [footer]="'Get More Space...'"
+    ></app-info-card>
+
+
+  </div>
+
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-header card-header-success card-header-icon">

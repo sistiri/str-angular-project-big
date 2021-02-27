@@ -58,6 +58,12 @@ export class BaseService<T extends { id: number }> {
     const query = `${this.config.apiUrl}/${this.entityName}?${key}=${value}&_limit=${limit}`;
     return this.http.get<T[]>(query);
   }
+
+  match(key: string, value: string, limit: number = 150): Observable<T[]> {
+    key = `${key}`;
+    const query = `${this.config.apiUrl}/${this.entityName}?${key}=${value}&_limit=${limit}`;
+    return this.http.get<T[]>(query);
+  }
 ​
   fullText(value: string): Observable<T[]> {
     const query = `${this.config.apiUrl}/${this.entityName}?q=${value}`;
