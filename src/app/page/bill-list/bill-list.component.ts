@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { Bill } from 'src/app/model/bill';
-import { CustomerService } from 'src/app/service/customer.service';
+
 import { BillService } from 'src/app/service/bill.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class BillListComponent implements OnInit {
 
   constructor(
     private billService: BillService,
+    private toastr: ToastrService,
     // private customerService: CustomerService,
     // private billService: billService ,
   ) { }
@@ -40,8 +42,9 @@ export class BillListComponent implements OnInit {
 
   onDelete(bill: Bill) {
 
-    this.billService.remove(bill).subscribe(r => {
+    this.billService.remove(bill).subscribe(() => {
       this.billService.getAll();
+      this.toastr.error('The Bill was deleted sucessfully');
     });
   }
 
