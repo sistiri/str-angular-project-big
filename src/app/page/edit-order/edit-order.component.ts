@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 
@@ -15,6 +15,7 @@ export class EditOrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private rout: ActivatedRoute,
+    private router: Router,
   ) {
     this.rout.params.subscribe( params => {
       this.orderService.get(params.id).forEach( order => {
@@ -25,6 +26,14 @@ export class EditOrderComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(order: Order): void {
+    this.orderService.update(order).subscribe(
+      saved => {
+      this.orderService.getAll();
+      this.router.navigate(['orders'])
+    });
   }
 
 }
