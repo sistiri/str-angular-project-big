@@ -1753,13 +1753,6 @@
       "status": "new"
     },
     {
-      "id": 13,
-      "customerID": 7,
-      "productID": 39,
-      "amount": 5,
-      "status": "paid"
-    },
-    {
       "id": 14,
       "customerID": 38,
       "productID": 92,

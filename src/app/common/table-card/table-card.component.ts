@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table-card',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-card.component.scss']
 })
 export class TableCardComponent implements OnInit {
+
+  @Input() title: string = '';
+  @Input() type: string= '';
+  @Input() data: string | number = '';
+  @Input() columns: string = '';
 
   constructor() { }
 

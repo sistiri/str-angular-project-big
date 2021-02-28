@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +31,11 @@ import { StatusCardComponent } from './common/status-card/status-card.component'
 import { TableCardComponent } from './common/table-card/table-card.component';
 import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
+import { InterceptorService } from './service/interceptor.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -61,9 +67,13 @@ import { EditBillComponent } from './page/edit-bill/edit-bill.component';
     ToastrModule.forRoot(),
     FormsModule,
     OrderModule,
+    MatTableModule,
+    GoogleChartsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
-
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
