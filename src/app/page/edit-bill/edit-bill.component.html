@@ -10,8 +10,8 @@
     <div class="form-group">
       <label for="orderID">OrderID</label>
       <input [(ngModel)]='bill.orderID' type="number" class="form-control" id="orderID"
-       name="orderID" required aria-describedby="name" required #billOrderID="ngModel" pattern="[0-9]">
-      <div [hidden]="billOrderID.valid || billOrderID.pristine"></div>
+       name="orderID" required aria-describedby="orderID" required #billOrderID="ngModel" pattern="[0-9]">
+      <div [hidden]="billOrderID.valid || billOrderID.pristine"></div>The Order required!
     </div>
 
     <div class="form-group">
