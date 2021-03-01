@@ -3,6 +3,8 @@ import { ProducserviceService } from '../../service/producservice.service';
 import { Product } from '../../model/product';
 import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { MatTableDataSource } from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-product-list',
@@ -13,15 +15,32 @@ export class ProductListComponent implements OnInit {
 
   productList$: BehaviorSubject<Product[]> = this.productService.list$;
 
+  tableDataSource: MatTableDataSource<Product> = new MatTableDataSource();
+
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'type',
+    'description',
+    'price',
+    'featured',
+    'active'
+  ];
+
   order: string = 'name';
   reverse: boolean = false;
 
   constructor(
-    private productService : ProducserviceService,
+    private productService: ProducserviceService,
     private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
+
+    this.productList$.subscribe(items => {
+      this.tableDataSource.data = items;
+    });
+
     this.productService.getAll();
   }
 
@@ -42,15 +61,12 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-
-
-
-
   onFilter(key:string, event: Event): void {
     const value = (event.target as HTMLInputElement).value;
     this.productService.like(key, value).subscribe((list: Product[]) => {
       this.productList$.next(list);
     });
   }
+
 
 }

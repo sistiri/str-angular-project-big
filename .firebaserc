@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "es-csapat": {
+      "hosting": {
+        "big-project": [
+          "es-csapat"
+        ]
+      }
+    }
+  }
+}

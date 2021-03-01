@@ -1,1 +1,19 @@
-<p>status-card works!</p>
+
+  <div class="card card-chart">
+    <div class="card-header card-header-success">
+      <div>{{title}}</div>
+    </div>
+    <div class="card-body">
+
+      <google-chart
+        #chart
+
+        [title]="changingChart.title"
+        [type]="changingChart.type"
+        [data]="data"
+        [options]="changingChart.options"
+      >
+      </google-chart>
+
+    </div>
+

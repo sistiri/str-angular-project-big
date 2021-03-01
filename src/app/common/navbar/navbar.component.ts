@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from '../../service/loader.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isMenuOpen = false;
+
+  constructor(
+    public loaderService: LoaderService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu(): void {
+    if (!this.isMenuOpen) {
+      document.querySelector('body')?.classList.add('nav-open');
+    } else {
+      document.querySelector('body')?.classList.remove('nav-open');
+    }
+
+    this.isMenuOpen = !this.isMenuOpen;
+
   }
 
 }
