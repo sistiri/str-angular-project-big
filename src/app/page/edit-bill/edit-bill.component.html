@@ -1,32 +1,45 @@
 <div class="container">
-  <form >
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header card-header-primary mb-3">
+        <h4 class="card-title">Edit Bill</h4>
+        <p class="card-category">Bill Acount!</p>
+      </div>
+  <form #billForm="ngForm">
+    <div class="col-md-10 offset-1">
     <div class="form-group">
-      <label for="name">orderID</label>
-      <input type="text" class="form-control" id="name"
-       name="name" aria-describedby="name" required >
-
+      <label for="orderID">OrderID</label>
+      <input [(ngModel)]='bill.orderID' type="number" class="form-control" id="orderID"
+       name="orderID" required aria-describedby="orderID" required #billOrderID="ngModel" pattern='(/^-?(0|[1-9]\d*)?$/)])'>
+      <div [hidden]="billOrderID.valid || billOrderID.pristine" class="alert alert-danger">The Order required!</div>
     </div>
 
     <div class="form-group">
-      <label for="name">Amount</label>
-      <input type="text" class="form-control" id="name"
-       name="name" aria-describedby="name" required >
-
+      <label for="amount">Amount</label>
+      <input [(ngModel)]='bill.amount' type="number" class="form-control" id="amount"
+       name="amount" aria-describedby="amount" required #billAmount="ngModel" pattern="(/^-?(0|[1-9]\d*)?$/)])">
+       <div [hidden]="billAmount.valid || billAmount.pristine" class="alert alert-danger">The amount required!</div>
     </div>
 
     <div class="form-group">
-      <label for="catid">Status</label>
-      <input type="text" class="form-control" id="name"
-       name="name" aria-describedby="name" required >
+      <label for="status">Status</label>
+      <select [(ngModel)]='bill.status'  type="text" class="form-control" id="status"
+       name="status" aria-describedby="status" required >
+       <option *ngFor="let pow of status" [value]="bill.status">{{bill.status}}</option></select>
     </div>
 
 
 
 
-  <button type="submit" class="btn btn-primary float-right">Submit</button>
-
+  <button [disabled]="!billForm.form.valid" (click)="onsubmit(bill); billForm.reset()" type="submit"
+  class="btn btn-primary float-right" mat-raised-button=""><span class="mat-button-wrapper">Submit</span>
+  <div class="mat-button-ripple-mat-riple" matripple=""></div>
+  <div class="mat-button-focus-overlay"></div>
+</button>
+    </div>
 </form>
 
 </div>
 
-
+  </div>
+  </div>

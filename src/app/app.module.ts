@@ -67,7 +67,11 @@ import { environment } from '../environments/environment.prod';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }),
     FormsModule,
     OrderModule,
     MatTableModule,

@@ -11,14 +11,20 @@ import { BillService } from 'src/app/service/bill.service';
 })
 export class EditBillComponent implements OnInit {
 
+
+  status = ['bill.status'];
+
   bill: Bill = new Bill();
+
+
+
 
   constructor(
     private billService: BillService,
     private rout: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService
-  ) {
+   ) {
     this.rout.params.subscribe( params => {
       if (params.id != '0'){
       this.billService.get(params.id).forEach( bill => {
@@ -43,7 +49,16 @@ export class EditBillComponent implements OnInit {
     }
   }
 
+    ngOnInit(): void {}
 
 
-  ngOnInit(): void {}
+  onsubmit(bill: Bill): void {
+    this.billService.update(bill).subscribe(
+      saved => {
+        this.billService.getAll();
+        this.toastr.success('Adatok elküldve!');
+        this.router.navigate(['bill'])
+      }
+    );
+  }
 }
