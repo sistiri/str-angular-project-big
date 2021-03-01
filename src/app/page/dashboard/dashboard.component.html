@@ -57,13 +57,14 @@
 </div>
 
 <div class="row">
+
   <div class="col-md-4">
+    <app-status-card title="Products" [data]="productChartData"></app-status-card>
+  </div>
 
-  <app-status-card>
-
-  </app-status-card>
-
-</div>
+  <div class="col-md-4">
+    <app-status-card title="Bills" [data]="billChartData"></app-status-card>
+  </div>
 
   <div class="col-md-4">
 
@@ -72,22 +73,7 @@
     </app-table-card>
 
   </div>
-  <div class="col-md-4">
-    <div class="card card-chart">
-      <div class="card-header card-header-danger">
-        <div class="ct-chart" id="completedTasksChart"></div>
-      </div>
-      <div class="card-body">
-        <h4 class="card-title">Completed Tasks</h4>
-        <p class="card-category">Last Campaign Performance</p>
-      </div>
-      <div class="card-footer">
-        <div class="stats">
-          <i class="material-icons">access_time</i> campaign sent 2 days ago
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
 <div class="row">
   <div class="col-lg-6 col-md-12">

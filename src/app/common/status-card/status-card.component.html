@@ -1,34 +1,16 @@
 
   <div class="card card-chart">
     <div class="card-header card-header-success">
-      <div>Active and inactive product</div>
+      <div>{{title}}</div>
     </div>
     <div class="card-body">
-
-      <div *ngFor="let chart of charts">
-        <google-chart
-
-          [title]="chart.title"
-          [type]="chart.type"
-          [data]="chart.data"
-          [columns]="chart.columns"
-
-          (ready)="onReady()"
-          (select)="onSelect($event)"
-          (error)="onError($event)"
-
-          (mouseleave)="onMouseLeave($event)"
-        >
-        </google-chart>
-      </div>
 
       <google-chart
         #chart
 
         [title]="changingChart.title"
         [type]="changingChart.type"
-        [data]="changingChart.data"
-        [columns]="changingChart.columns"
+        [data]="data"
         [options]="changingChart.options"
       >
       </google-chart>

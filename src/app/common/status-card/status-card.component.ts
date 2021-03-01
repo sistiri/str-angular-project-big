@@ -1,10 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  ChartErrorEvent,
-  ChartMouseLeaveEvent,
-  ChartMouseOverEvent,
-  ChartSelectionChangedEvent,
   ChartType,
   Column,
   GoogleChartComponent
@@ -17,6 +13,12 @@ import {
 })
 export class StatusCardComponent implements OnInit {
 
+  @Input()
+  title?: string;
+
+  @Input()
+  data: any[][] = [];
+
   public charts: {
     title: string;
     type: ChartType;
@@ -28,10 +30,7 @@ export class StatusCardComponent implements OnInit {
   public changingChart = {
     title: '',
     type: ChartType.PieChart,
-    data: [
-      ['Active', 25,],
-      ['inActive', 35]
-    ],
+    data: [],
     columns: ['Element', 'Density'],
     options: {
       animation: {
@@ -43,38 +42,18 @@ export class StatusCardComponent implements OnInit {
     }
   };
 
-  @ViewChild('chart', { static: true })
+  @ViewChild('chart', { static: false })
   public chart!: GoogleChartComponent;
 
   constructor(private router: Router) {}
 
-  public onReady() {
-    console.log('Chart ready');
-  }
 
-  public onError(error: ChartErrorEvent) {
-    console.error('Error: ' + error.message.toString());
-  }
+  ngOnInit(): void {
 
-  public onSelect(event: ChartSelectionChangedEvent) {
-    console.log('Selected: ' + event.toString());
-  }
-
-  public onMouseEnter(event: ChartMouseOverEvent) {
-    console.log('Hovering ' + event.toString());
-  }
-
-  public onMouseLeave(event: ChartMouseLeaveEvent) {
-    console.log('No longer hovering ' + event.toString());
-  }
-
-  public ngOnInit() {
     console.log(this.chart);
   }
 
-  public navigateToTest() {
-    this.router.navigateByUrl('/test');
-  }
+
 
 
 }
