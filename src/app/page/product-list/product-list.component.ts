@@ -25,13 +25,13 @@ export class ProductListComponent implements OnInit {
     'price',
     'featured',
     'active'
-  ]
+  ];
 
   order: string = 'name';
   reverse: boolean = false;
 
   constructor(
-    private productService : ProducserviceService,
+    private productService: ProducserviceService,
     private toastr: ToastrService,
   ) { }
 
@@ -39,7 +39,7 @@ export class ProductListComponent implements OnInit {
 
     this.productList$.subscribe(items => {
       this.tableDataSource.data = items;
-    })
+    });
 
     this.productService.getAll();
   }
@@ -60,10 +60,6 @@ export class ProductListComponent implements OnInit {
       });
     }
   }
-
-
-
-
 
   onFilter(key:string, event: Event): void {
     const value = (event.target as HTMLInputElement).value;

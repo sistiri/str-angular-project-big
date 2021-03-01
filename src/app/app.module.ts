@@ -35,8 +35,11 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { InterceptorService } from './service/interceptor.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -71,6 +74,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     GoogleChartsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }

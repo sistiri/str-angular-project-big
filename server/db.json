@@ -946,7 +946,7 @@
       "type": "Crime|Drama",
       "catID": "2",
       "description": "hh",
-      "price": "1200",
+      "price": 0,
       "featured": true,
       "active": false
     },
@@ -969,6 +969,16 @@
       "price": 11,
       "featured": false,
       "active": true
+    },
+    {
+      "id": 103,
+      "name": "Test nagydíj",
+      "type": "",
+      "catID": 0,
+      "description": "mmm",
+      "price": 23,
+      "featured": true,
+      "active": false
     }
   ],
   "customers": [
