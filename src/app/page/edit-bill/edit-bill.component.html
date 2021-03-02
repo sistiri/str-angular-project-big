@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-8 mx-auto w-auto">
     <div class="card">
-      <div class="card-header card-header-primary mb-3">
+      <div class="card-header card-header-warning mb-3">
         <h4 class="card-title">Edit Bill</h4>
         <p class="card-category">Bill Acount!</p>
       </div>
@@ -32,7 +32,7 @@
 
 
   <button [disabled]="!billForm.form.valid" (click)="onsubmit(bill); billForm.reset()" type="submit"
-  class="btn btn-primary float-right" mat-raised-button=""><span class="mat-button-wrapper">Submit</span>
+  class="btn btn-warning float-right" mat-raised-button=""><span class="mat-button-wrapper">Submit</span>
   <div class="mat-button-ripple-mat-riple" matripple=""></div>
   <div class="mat-button-focus-overlay"></div>
 </button>
