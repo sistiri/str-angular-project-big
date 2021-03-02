@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <div class="card card-plain">
-      <button class="btn btn-danger btn-block">
+      <button [routerLink]="[0]" class="btn btn-danger btn-block">
           <span class="mat-button-wrapper">Add new bill</span>
           <!-- <div class="mat-button-ripple mat-ripple" matripple=""></div> -->
           <!-- <div class="mat-button-focus-overlay"></div> -->
@@ -16,20 +16,41 @@
           <div class="table-responsive">
               <table class="table table-hover">
                   <thead class="">
-                      <tr>
-                          <th>ID</th>
-                          <th>Order ID</th>
-                          <!-- <th>Customer ID</th> -->
-                          <!-- <th>Customer Name</th> -->
-                          <!-- <th>ProductID</th> -->
-                          <!-- <th>Product Name</th> -->
-                          <th>Amount</th>
-                          <th>Status</th>
-                          <th></th>
-                      </tr>
-                  </thead>
+                    <tr class="bcolor">
+                      <th [class.active]="order === 'id'"
+                        (click)="setOrder('id')">ID:
+                        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'name'"
+                      (click)="setOrder('name')">Order ID:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'type'"
+                      (click)="setOrder('type')">Amount:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'description'"
+                      (click)="setOrder('description')">Status:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+
+                  <tr>
+                    <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('orderID', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('amount', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('status', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                  </tr>
+
+              </thead>
+
                   <tbody>
-                      <tr *ngFor="let bill of billList$ | async">
+                      <tr *ngFor="let bill of billList$ | async | orderBy:order:reverse">
                           <td>{{ bill.id }}</td>
                           <td>{{ bill.orderID }}</td>
                           <!-- <td>{{ bill.customerID }}</td> -->
@@ -40,12 +61,13 @@
                           <td>{{ bill.status }}</td>
                           <td>
                               <div class="btn-group">
-                                  <button class="btn btn-warning">
+                                  <button  [routerLink]="[bill.id]" class="btn btn-warning">
                                       <span class="material-icons">
                                           create
                                       </span>
                                   </button>
-                                  <button class="btn btn-danger">
+
+                                  <button (click)="onDelete(bill)" class="btn btn-danger">
                                       <span class="material-icons">
                                           delete_forever
                                       </span>

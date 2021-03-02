@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,18 +16,30 @@ import { BillService } from './service/bill.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { OrderListComponent } from './page/order-list/order-list.component';
-import { ProductListComponent } from './page/product-list/product-list.component';
 
-import { OrderModule } from 'ngx-order-pipe';
+
 import { InfoCardComponent } from './common/info-card/info-card.component';
 import { EditProductComponent } from './page/edit-product/edit-product.component';
+import { OrderListComponent } from './page/order-list/order-list.component';
+import { ProductListComponent } from './page/product-list/product-list.component';
+import { EditCustomerComponent } from './page/edit-customer/edit-customer.component';
 import { BillListComponent } from './page/bill-list/bill-list.component';
 import { EditOrderComponent } from './page/edit-order/edit-order.component';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { StatusCardComponent } from './common/status-card/status-card.component';
+import { TableCardComponent } from './common/table-card/table-card.component';
+import { EditBillComponent } from './page/edit-bill/edit-bill.component';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
+import { InterceptorService } from './service/interceptor.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -38,9 +52,14 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
     ProductListComponent,
     InfoCardComponent,
     EditProductComponent,
+    EditCustomerComponent,
     EditOrderComponent,
     BillListComponent,
-    CustomerListComponent
+    EditBillComponent,
+    CustomerListComponent,
+    StatusCardComponent,
+    TableCardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,12 +67,23 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
-    OrderModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }),
     FormsModule,
+    OrderModule,
+    MatTableModule,
+    GoogleChartsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [
-    BillService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
