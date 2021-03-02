@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-order-list',
@@ -18,6 +19,7 @@ export class OrderListComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
+    private toastr: ToastrService,
    ) { }
 
   ngOnInit(): void {
@@ -32,9 +34,12 @@ export class OrderListComponent implements OnInit {
   }
 
   onDelete(order: Order) {
-    this.orderService.remove(order).subscribe(r => {
+    if (confirm("Are you sure you want to delete the item?")) {
+       this.orderService.remove(order).subscribe(r => {
       this.orderService.getAll();
+      this.toastr.error('The item was deleted successfully');
     });
+    }
   }
 
   onFilter(key:string, event: Event): void {
