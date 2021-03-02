@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
   };
 
   productChartData: [string, number][] = [];
+  productChartColors = ['#49A54D', '#FF0000'];
   billChartData: [string, number][] = [];
+  billChartColors = ['#3399FF', '#FFA523'];
 
   constructor(
     private productService: ProducserviceService,

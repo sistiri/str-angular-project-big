@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="col-md-8">
+    <div class="col-md-8  mx-auto w-auto">
         <div class="card">
-            <div class="card-header card-header-danger mb-3">
+            <div class="card-header card-header-primary mb-3">
                 <h4 class="card-title">Edit Order</h4>
                 <p class="card-category">Change anything you'd like!</p>
             </div>
@@ -34,8 +34,8 @@
                         <option value="paid">Paid</option>
                     </select>
                 </div>
-                <button (click)="onSubmit(order)" 
-                    class="btn btn-danger pull-right mat-raised-button mt-5 mb-5" 
+                <button (click)="onSubmit(order)"
+                    class="btn btn-primary pull-right mat-raised-button mt-5 mb-5"
                     mat-raised-button=""
                     type="submit">
                     <span class="mat-button-wrapper">Submit</span>
@@ -43,7 +43,7 @@
                     <div class="mat-button-focus-overlay"></div>
                 </button>
                 </div>
-                
+
                 <div class="clearfix"></div>
             </form>
         </div>
