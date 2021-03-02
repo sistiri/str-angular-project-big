@@ -1,41 +1,25 @@
 
  <div class="card">
-  <div class="card-header card-header-warning">
-    <h4 class="card-title">Employees Stats</h4>
-    <p class="card-category">New employees on 15th September, 2016</p>
+  <div class="card-header card-header-success">
+    <h4 class="card-title">Last 5 new products</h4>
+    <p class="card-category"></p>
   </div>
   <div class="card-body table-responsive">
     <table class="table table-hover">
       <thead class="text-warning">
-        <th>ID</th>
         <th>Name</th>
-        <th>Salary</th>
-        <th>Country</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Featured</th>
+        <th>Active</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Dakota Rice</td>
-          <td>$36,738</td>
-          <td>Niger</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Minerva Hooper</td>
-          <td>$23,789</td>
-          <td>Curaçao</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Sage Rodriguez</td>
-          <td>$56,142</td>
-          <td>Netherlands</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Philip Chaney</td>
-          <td>$38,735</td>
-          <td>Korea, South</td>
+        <tr *ngFor="let product of data | slice:-5">
+          <td>{{ product.name }}</td>
+          <td>{{ product.type }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{product.featured}}</td>
+          <td>{{product.active}}</td>
         </tr>
       </tbody>
     </table>
