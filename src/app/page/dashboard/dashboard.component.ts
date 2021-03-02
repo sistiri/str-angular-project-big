@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { CustomerService } from '../../service/customer.service';
 import { BillService } from '../../service/bill.service';
 import { Bill } from '../../model/bill';
+import { DIR_DOCUMENT_FACTORY } from '@angular/cdk/bidi/dir-document-token';
 
 
 @Component({
@@ -22,7 +23,11 @@ export class DashboardComponent implements OnInit {
   };
 
   productChartData: [string, number][] = [];
+  productChartColors = ['#49A54D', '#FF0000'];
   billChartData: [string, number][] = [];
+  billChartColors = ['#3399FF', '#FFA523'];
+
+  newProductsList: Product[] = [];
 
   constructor(
     private productService: ProducserviceService,
@@ -32,6 +37,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInfoData();
+    this.newProducts();
   }
 
   public getInfoData(): void
@@ -74,8 +80,18 @@ export class DashboardComponent implements OnInit {
 
     this.billService.getAll();
 
-
-
   }
+
+  public newProducts(): void {
+    this.productService.list$.subscribe((products: Product[]) => {
+      products.sort((a: Product, b: Product) => {
+        return Number(a.id) - Number(b.id);
+      });
+      this.newProductsList = products;
+    });
+
+    this.productService.getAll();
+  }
+
 
 }
