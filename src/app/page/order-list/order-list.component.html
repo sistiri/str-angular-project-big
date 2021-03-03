@@ -27,7 +27,13 @@
                         <tr class="bcolor">
                             <th *ngFor="let col of cols"
                                 [class.active]="order === col.key"
-                                (click)="setOrder(col.key)"> {{ col.title }}
+                                (click)="setOrder(col.key)"
+                                id="{{ col.key }}"
+                                draggable="true"
+                                (dragover)="$event.preventDefault()"
+                                (dragstart)="onHeaderDragStart($event)"
+                                (drop)="onHeaderDrop($event)">
+                                {{ col.title }}
                               <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                               <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Search">
                             </th>

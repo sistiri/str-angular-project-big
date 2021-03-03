@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 import { ToastrService } from 'ngx-toastr';
-import { MatTableDataSource } from '@angular/material/table';
+// import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class OrderListComponent implements OnInit {
 
   orderList$: BehaviorSubject<Order[]> = this.orderService.list$;
 
-  tableDataSource: MatTableDataSource<Order> = new MatTableDataSource();
+  // tableDataSource: MatTableDataSource<Order> = new MatTableDataSource();
 
   displayedColumns: string[] = [
     'id',
@@ -48,6 +48,22 @@ export class OrderListComponent implements OnInit {
     this.orderService.getAll();
   }
 
+  // Drag and Drop methods
+  onHeaderDragStart(event: DragEvent): void {
+    this.lastDragKey = (event.target as HTMLTableHeaderCellElement).id;
+  }
+
+  onHeaderDrop(event: DragEvent): void {
+    event.preventDefault();
+    const targetID: string = (event.target as HTMLTableHeaderCellElement).id;
+    const from = this.cols.findIndex(col => col.key === this.lastDragKey);
+    const to = this.cols.findIndex(col => col.key === targetID);
+    const temp = Object.assign({}, this.cols[from]);
+    this.cols.splice(from, 1);
+    this.cols.splice(to, 0, temp);
+  }
+
+  // Set Order method 
   setOrder(value: string): void {
     if (this.order === value) {
       this.reverse = !this.reverse;
