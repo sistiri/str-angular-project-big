@@ -43,6 +43,7 @@ import { environment } from '../environments/environment.prod';
 import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CustomersCardComponent } from './common/customers-card/customers-card.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     StatusCardComponent,
     TableCardComponent,
     NewCustomerCardComponent,
+    CustomersCardComponent,
 
   ],
   imports: [

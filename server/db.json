@@ -983,20 +983,6 @@
   ],
   "customers": [
     {
-      "id": 1,
-      "first_name": "Marcellina",
-      "last_name": "Frearson",
-      "email": "mfrearson0@istockphoto.com",
-      "address": {
-        "zip": "6718",
-        "country": "Hungary",
-        "city": "Szeged",
-        "street": "37 Memorial Street",
-        "notes": "hac habitasse platea dictumst aliquam augue quam"
-      },
-      "active": false
-    },
-    {
       "id": 2,
       "first_name": "Priscella",
       "last_name": "Innes",
@@ -1675,6 +1661,20 @@
         "notes": "vestibulum sed magna at nunc commodo"
       },
       "active": true
+    },
+    {
+      "id": 51,
+      "first_name": "mm",
+      "last_name": "mm",
+      "email": "mm@gmail.com",
+      "address": {
+        "zip": 66,
+        "country": "Magyarország",
+        "city": "",
+        "street": "kis u 11",
+        "notes": "mmmmm"
+      },
+      "active": true
     }
   ],
   "orders": [
@@ -2019,7 +2019,7 @@
     {
       "id": 1,
       "orderID": 1,
-      "amount": 5,
+      "amount": 1,
       "status": "new"
     },
     {
@@ -2620,6 +2620,18 @@
       "id": 101,
       "orderID": 654,
       "amount": 233,
+      "status": "new"
+    },
+    {
+      "id": 102,
+      "orderID": -1,
+      "amount": 0,
+      "status": "new"
+    },
+    {
+      "id": 103,
+      "orderID": 1,
+      "amount": 1,
       "status": "new"
     }
   ]

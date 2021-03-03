@@ -11,15 +11,17 @@ import { ConfigService } from './config.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
+export class CustomerService extends BaseService<Customer>{
 
-  httpURL: string = 'http://localhost:3000/customers';
+  //httpURL: string = 'http://localhost:3000/customers';
 
-  constructor(public config: ConfigService, public http: HttpClient) {
-    //super(config, http, 'customers')
+  constructor(
+      public config: ConfigService,
+      public http: HttpClient) {
+   super (config, http, 'customers');
   }
 
-  getAll(): Observable<Customer[]> {
+ /* getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.httpURL);
   }
 
@@ -42,4 +44,5 @@ export class CustomerService {
   remove(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${this.httpURL}/${id}`);
   }
+  */
 }
