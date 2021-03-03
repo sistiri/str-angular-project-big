@@ -7,17 +7,29 @@
       </button>
   </div>
   <div class="card card-plain">
-      <div class="card-header card-header-primary">
-          <h4 class="card-title mt-0">Bill List</h4>
+      <div class="card-header card-header-warning">
+          <h2 class="card-title mt-0">Bill List</h2>
           <p class="card-category">All bills should be seen here</p>
       </div>
 
       <div class="card-body">
           <div class="table-responsive">
-              <table class="table table-hover">
+              <table class="table table-hover mx-auto w-auto">
                   <thead class="">
                     <tr class="bcolor">
-                      <th [class.active]="order === 'id'"
+                      <th *ngFor="let col of cols"
+                        [class.active]="order === col.key"
+                        (click)="setOrder(col.key)"
+                        id="{{ col.key }}"
+                        draggable="true"
+                        (dragover)="$event.preventDefault()"
+                        (dragstart)="onHeaderDragStart($event)"
+                        (drop)="onHeaderDrop($event)">
+                        {{ col.title }}
+                        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                        <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+                      </th>
+                      <!-- <th [class.active]="order === 'id'"
                         (click)="setOrder('id')">ID:
                         <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                       </th>
@@ -37,28 +49,28 @@
                       <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                       </th>
                       <th></th>
-                      <th></th>
+                      <th></th> -->
                   </tr>
 
-                  <tr>
+                 <!--  <tr>
                     <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Filter"></th>
                     <th><input (keyup)="onFilter('orderID', $event)" class="form-control" type="text" placeholder="Filter"></th>
                     <th><input (keyup)="onFilter('amount', $event)" class="form-control" type="text" placeholder="Filter"></th>
                     <th><input (keyup)="onFilter('status', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                  </tr>
+                  </tr> -->
 
               </thead>
 
                   <tbody>
                       <tr *ngFor="let bill of billList$ | async | orderBy:order:reverse">
-                          <td>{{ bill.id }}</td>
-                          <td>{{ bill.orderID }}</td>
+                          <td *ngFor="let col of cols">{{ bill[col.key] }}</td>
+                          <!-- <td>{{ bill.orderID }}</td> -->
                           <!-- <td>{{ bill.customerID }}</td> -->
                           <!-- <td>{{ customer.name }}</td> -->
                           <!-- <td>{{ bill.productID }}</td> -->
-                          <!-- <td>{{ product.name }}</td> -->
+                          <!-- <td>{{ product.name }}</td>
                           <td>{{ bill.amount }}</td>
-                          <td>{{ bill.status }}</td>
+                          <td>{{ bill.status }}</td> -->
                           <td>
                               <div class="btn-group">
                                   <button  [routerLink]="[bill.id]" class="btn btn-warning">
