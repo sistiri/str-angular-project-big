@@ -14,10 +14,16 @@ import {
 export class StatusCardComponent implements OnInit {
 
   @Input()
+  cardClass: string = 'card-header-warning';
+
+  @Input()
   title?: string;
 
   @Input()
   data: any[][] = [];
+
+  @Input()
+  colors: string[] = [];
 
   public charts: {
     title: string;
@@ -25,6 +31,7 @@ export class StatusCardComponent implements OnInit {
     data: any[][];
     columns?: Column[];
     options?: {};
+    colors: string[];
   }[] = [];
 
   public changingChart = {
@@ -49,7 +56,7 @@ export class StatusCardComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.changingChart.options.colors = this.colors;
     console.log(this.chart);
   }
 

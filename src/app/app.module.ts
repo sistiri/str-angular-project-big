@@ -40,6 +40,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment.prod';
+import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { environment } from '../environments/environment.prod';
     CustomerListComponent,
     StatusCardComponent,
     TableCardComponent,
+    NewCustomerCardComponent,
 
   ],
   imports: [

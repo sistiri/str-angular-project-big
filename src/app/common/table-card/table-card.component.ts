@@ -7,10 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableCardComponent implements OnInit {
 
-  @Input() title: string = '';
-  @Input() type: string= '';
-  @Input() data: string | number = '';
-  @Input() columns: string = '';
+  @Input()
+  data: any[] = [];
+
 
   constructor() { }
 
