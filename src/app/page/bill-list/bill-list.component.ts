@@ -12,6 +12,14 @@ import { BillService } from 'src/app/service/bill.service';
 })
 export class BillListComponent implements OnInit {
 
+  cols: { title: string, key: string } [] = [
+    { key: 'id', title: 'ID' },
+    { key: 'orderID', title: 'Order ID' },
+    { key: 'amount', title: 'Amount' },
+    { key: 'status', title: 'Status' },
+  ];
+  lastDragKey = '';
+
   billList$: BehaviorSubject<Bill[]> = this.billService.list$;
   // customerList$: BehaviorSubject<bill[]> = this.billService.list$;
 
@@ -24,6 +32,20 @@ export class BillListComponent implements OnInit {
     // private customerService: CustomerService,
     // private billService: billService ,
   ) { }
+
+  onHeaderDragStart(event: DragEvent): void {
+    this.lastDragKey = (event.target as HTMLTableHeaderCellElement).id;
+  }
+
+  onHeaderDrop(event: DragEvent): void {
+    event.preventDefault();
+    const targetID: string = (event.target as HTMLTableHeaderCellElement).id;
+    const from = this.cols.findIndex(col => col.key === this.lastDragKey);
+    const to = this.cols.findIndex(col => col.key === targetID);
+    const temp = Object.assign({}, this.cols[from]);
+    this.cols.splice(from, 1);
+    this.cols.splice(to, 0, temp);
+  }
 
   ngOnInit(): void {
     this.billService.getAll();
