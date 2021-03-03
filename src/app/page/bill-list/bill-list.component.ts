@@ -58,16 +58,16 @@ export class BillListComponent implements OnInit {
     if (this.order === value) {
       this.reverse = !this.reverse;
     }
-
     this.order = value;
   }
 
   onDelete(bill: Bill) {
-
-    this.billService.remove(bill).subscribe(() => {
-      this.billService.getAll();
-      this.toastr.error('The Bill was deleted sucessfully');
-    });
+    if (confirm("Are you sure you want to delete the bill?")) {
+      this.billService.remove(bill).subscribe(() => {
+        this.billService.getAll();
+        this.toastr.error('The bill was deleted sucessfully');
+      });
+    }
   }
 
   onFilter(key:string, event: Event): void {
