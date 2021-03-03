@@ -32,9 +32,9 @@
 </div>
 
 
-<div class="row col d-flex justify-content-center">
+<div class="row">
 
-  <div class="col-md-4">
+  <div class="col-xl-4 col-lg-12">
 
     <app-status-card [cardClass]="'card-header-info'" title="Products" [data]="productChartData"
       [colors]="productChartColors">
@@ -42,7 +42,7 @@
 
   </div>
 
-  <div class="col-md-4">
+  <div class="col-xl-4 col-lg-12">
 
     <app-status-card [cardClass]="'card-header-warning'" title="Bills" [data]="billChartData"
       [colors]="billChartColors">
@@ -50,7 +50,7 @@
 
   </div>
 
-  <div class="col-md-4">
+  <div class="col-xl-4 col-lg-12">
 
     <app-status-card [cardClass]="'card-header-danger'" title="Orders" [data]="orderStatusChartData"
       [colors]="orderStatusChartColors">
@@ -62,10 +62,18 @@
 
 <div class="row">
 
-  <div class="col-lg-6 col-md-12">
+  <div class="col-xl-6 col-lg-12">
     <app-table-card [data]="newProductsList">
 
     </app-table-card>
     <a routerLink="/product" class="stretched-link"></a>
   </div>
+
+  <div class="col-xl-6 col-lg-12">
+    <app-customers-card [data]="newCustomersList">
+
+    </app-customers-card>
+    <a routerLink="/customers" class="stretched-link"></a>
+  </div>
+
 </div>

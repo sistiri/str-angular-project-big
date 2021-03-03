@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <div class="card card-plain">
-    <button class="btn btn-danger btn-block">
-      <span class="mat-button-wrapper">Add new order</span>
+    <button [routerLink]="[0]" class="btn btn-danger btn-block">
+      <span class="mat-button-wrapper">Add new customer</span>
     </button>
   </div>
   <div class="card card-plain">
@@ -10,50 +10,107 @@
       <p class="card-category">All customers should be seen here</p>
     </div>
 
-      <div class="col-12 my-2 table-responsive">
+    <div class="card-body">
+      <div class="table-responsive">
           <table class="table table-hover mx-auto w-auto">
-              <thead>
-                  <tr>
-                      <th>FirstName</th>
-                      <th>LastName</th>
-                      <th>Email</th>
-                      <th>Zip</th>
-                      <th>Country</th>
-                      <th>City</th>
-                      <th>Street</th>
-                      <th>Notes</th>
-                      <th>Active</th>
+              <thead class="">
+                  <tr class="bcolor">
+                    <th *ngFor="let col of cols"
+                    [class.active]="order === col.key"
+                    (click)="setOrder(col.key)"
+                    id="{{ col.key }}"
+                    draggable="true"
+                    (dragover)="$event.preventDefault()"
+                    (dragstart)="onHeaderDragStart($event)"
+                    (drop)="onHeaderDrop($event)">
+                    {{ col.title }}
+                    <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                    <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+                  </th>
+                    <!--  <th [class.active]="order === 'id'"
+                        (click)="setOrder('id')">ID:
+                        <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'name'"
+                      (click)="setOrder('name')">Name:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'type'"
+                      (click)="setOrder('type')">Type:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'description'"
+                      (click)="setOrder('description')">Description:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'price'"
+                      (click)="setOrder('price')">Price:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'featured'"
+                      (click)="setOrder('featured')">Featured:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th>
+
+                      <th [class.active]="order === 'active'"
+                      (click)="setOrder('active')">Active:
+                      <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                      </th> -->
+
                   </tr>
+                  <!--
+                  <tr>
+                    <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('name', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('type', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('description', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('price', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('featured', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                    <th><input (keyup)="onFilter('active', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                  </tr>
+                -->
               </thead>
               <tbody>
-                  <tr *ngFor="let customer of customerList$ | async">
+                <tr *ngFor="let customer of customerList$ | async | orderBy:order:reverse | paginate: { itemsPerPage: 10,
+                    currentPage: page,
+                    totalItems:totalLength
+                  }">
+                 <!-- <td *ngFor="let col of cols">{{ customer[col.key] }}</td>-->
                       <td>{{ customer.first_name }}</td>
                       <td>{{ customer.last_name }}</td>
                       <td>{{ customer.email }}</td>
                       <td>{{ customer.address.zip }}</td>
-                      <td>{{ customer.address.country }}</td>
-                      <td>{{ customer.address.city }}</td>
-                      <td>{{ customer.address.street }}</td>
-                      <td>{{ customer.address.notes }}</td>
+                      <td>{{customer.address.country}}</td>
+                      <td>{{customer.address.city}}</td>
+                      <td>{{customer.address.street}}</td>
+                      <td>{{customer.address.notes}}</td>
                       <td>{{ customer.active }}</td>
+
                       <td>
                           <div class="btn-group">
-                              <button class="btn btn-warning">
-                                  <i class="material-icons">
-                                      mode_edit
-                                  </i>
+                              <button [routerLink]="[customer.id]" class="btn btn-warning">
+                                  <span class="material-icons">
+                                      create
+                                  </span>
                               </button>
-                              <button (click)="removeCustomer(customer.id)" class="btn btn-danger">
-                                  <i class="material-icons">
+                              <button (click)="onDelete(customer)" class="btn btn-danger">
+                                  <span class="material-icons">
                                       delete_forever
-                                  </i>
+                                  </span>
                               </button>
                           </div>
                       </td>
                   </tr>
               </tbody>
           </table>
+          <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
       </div>
+  </div>
 
   </div>
 </div>
