@@ -10,7 +10,6 @@ export class TableCardComponent implements OnInit {
   @Input()
   data: any[] = [];
 
-
   constructor() { }
 
   ngOnInit(): void {

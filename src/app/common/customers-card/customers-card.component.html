@@ -1,0 +1,29 @@
+<div class="card col">
+  <div class="card-header card-header-info">
+    <h4 class="card-title">Last 5 new Customers</h4>
+    <p class="card-category"></p>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-hover">
+      <thead class="text-info">
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Zip</th>
+        <th>Country</th>
+        <th>City</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customers of data | slice:-5">
+          <td>{{ customers.first_name }}</td>
+          <td>{{ customers.last_name }}</td>
+          <td>{{ customers.email }}</td>
+          <td>{{customers.address.zip}}</td>
+          <td>{{customers.address.country}}</td>
+          <td>{{customers.address.city}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
