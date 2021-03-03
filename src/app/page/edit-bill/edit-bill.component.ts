@@ -16,9 +16,6 @@ export class EditBillComponent implements OnInit {
 
   bill: Bill = new Bill();
 
-
-
-
   constructor(
     private billService: BillService,
     private rout: ActivatedRoute,
@@ -37,13 +34,13 @@ export class EditBillComponent implements OnInit {
   onSave() {
     if (this.bill.id) {
       this.billService.update(this.bill).subscribe((p: Bill) => {
-        this.toastr.success('Sikeres mentés!');
+        this.toastr.success('The item was saved successfully!');
         this.router.navigate(['bill']);
       });
 
     }else{
       this.billService.create(this.bill).subscribe((p: Bill) => {
-        this.toastr.success('Sikeres mentés!');
+        this.toastr.success('The item was saved successfully!');
         this.router.navigate(['bill']);
       });
     }
@@ -51,14 +48,4 @@ export class EditBillComponent implements OnInit {
 
     ngOnInit(): void {}
 
-
-  onsubmit(bill: Bill): void {
-    this.billService.update(bill).subscribe(
-      saved => {
-        this.billService.getAll();
-        this.toastr.success('Adatok elküldve!');
-        this.router.navigate(['bill'])
-      }
-    );
-  }
 }
