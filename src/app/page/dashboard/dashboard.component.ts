@@ -122,7 +122,9 @@ export class DashboardComponent implements OnInit {
       ];
       this.orderStatusChartData = data;
 
-    })
+    });
+
+    this.orderService.getAll();
 
   }
 
