@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getInfoData();
     this.newProducts();
+    this.newCustomers();
   }
 
   public getInfoData(): void
@@ -138,6 +139,17 @@ export class DashboardComponent implements OnInit {
     });
 
     this.productService.getAll();
+  }
+
+  public newCustomers(): void {
+    this.customerService.list$.subscribe((customers: Customer[]) => {
+      customers.sort((a: Customer, b: Customer) => {
+        return Number(a.id) - Number(b.id);
+      });
+      this.newCustomersList = customers;
+    });
+
+    this.customerService.getAll();
   }
 
 

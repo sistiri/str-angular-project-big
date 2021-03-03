@@ -12,16 +12,15 @@
         <th>Zip</th>
         <th>Country</th>
         <th>City</th>
-        <th>Active</th>
       </thead>
       <tbody>
         <tr *ngFor="let customers of data | slice:-5">
           <td>{{ customers.first_name }}</td>
           <td>{{ customers.last_name }}</td>
           <td>{{ customers.email }}</td>
-          <td>{{customers.Address.zip}}</td>
-          <td>{{customers.Address.country}}</td>
-          <td>{{customers.Address.city}}</td>
+          <td>{{customers.address.zip}}</td>
+          <td>{{customers.address.country}}</td>
+          <td>{{customers.address.city}}</td>
         </tr>
       </tbody>
     </table>

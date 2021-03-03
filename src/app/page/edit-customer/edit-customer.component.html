@@ -49,7 +49,16 @@
                 <input [(ngModel)]="customer.address.country" type="country" class="form-control" id="country"
                 name="country" aria-describedby="country" required #country="ngModel">
                 <div [hidden]="country.valid || country.pristine">
-                  Please choose a email.
+                  Please choose a Country.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="name">City</label>
+                <input [(ngModel)]="customer.address.city" type="city" class="form-control" id="city"
+                name="city" aria-describedby="city" required #city="ngModel">
+                <div [hidden]="city.valid || city.pristine">
+                  Please choose a City.
                 </div>
               </div>
 
@@ -58,7 +67,7 @@
                 <input [(ngModel)]="customer.address.street" type="street" class="form-control" id="street"
                 name="street" aria-describedby="street" required #street="ngModel">
                 <div [hidden]="street.valid || street.pristine">
-                  Please choose a email.
+                  Please choose a street.
                 </div>
               </div>
 
