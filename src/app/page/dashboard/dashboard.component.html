@@ -4,15 +4,15 @@
       <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
         <app-info-card [cardClass]="'card-header-success'" [icon]="'shopping_cart'" [title]="'Number of active products'"
-          [content]="'Active: ' + infoData.activeProductCount" [footer]="'Get More Space...'">
+          [content]="'Active: ' + infoData.activeProductCount" [link]="'product'" [footer]="'More details...'">
         </app-info-card>
-        <a routerLink="/product" class="stretched-link"></a>
+
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
         <app-info-card [cardClass]="'card-header-danger'" [icon]="'unpublished'" [title]="'Number of unpaid bills'"
-          [content]="'Unpaid: ' + infoData.unpaidBills" [footer]="'Get More Space...'"></app-info-card>
+          [content]="'Unpaid: ' + infoData.unpaidBills" [link]="'bill'" [footer]="'More details...'"></app-info-card>
 
 
       </div>
@@ -20,7 +20,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
         <app-info-card [cardClass]="'card-header-danger'" [icon]="'paid'" [title]="'Amount of unpaid bills'"
-          [content]="'Unpaid: $' + infoData.unpaidAmount" [footer]="'Get More Space...'"></app-info-card>
+          [content]="'Unpaid: $' + infoData.unpaidAmount" [link]="'bill'" [footer]="'More details...'"></app-info-card>
 
 
       </div>
@@ -28,7 +28,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
         <app-info-card [cardClass]="'card-header-info'" [icon]="'person'" [title]="'Active customers'"
-          [content]="infoData.activeCustomers + ' Person'" [footer]="'Get More Space...'"></app-info-card>
+          [content]="infoData.activeCustomers + ' Person'" [link]="'customers'" [footer]="'More details...'"></app-info-card>
 
 
       </div>

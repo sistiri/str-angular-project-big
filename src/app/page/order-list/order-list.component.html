@@ -35,7 +35,7 @@
                                 (drop)="onHeaderDrop($event)">
                                 {{ col.title }}
                               <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                              <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Search">
+
                             </th>
                             <!-- <th [class.active]="order === 'id'"
                               (click)="setOrder('id')">ID
@@ -58,6 +58,11 @@
                               <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                             </th> -->
 
+                        </tr>
+                        <tr>
+                          <th *ngFor="let col of cols">
+                            <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+                          </th>
                         </tr>
                         <!-- <tr>
                             <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Search ID"></th>
