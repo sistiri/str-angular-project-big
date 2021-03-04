@@ -202,6 +202,15 @@
       background: linear-gradient(60deg, $red-400, $red-600);
     }
 
+    .card-header-purple .card-icon,
+    .card-header-purple .card-text,
+    .card-header-purple:not(.card-header-icon):not(.card-header-text),
+    &.bg-purple,
+    &.card-rotate.bg-purple .front,
+    &.card-rotate.bg-purple .back{
+      background: linear-gradient(60deg, $purple-400, $purple-600);
+    }
+
     .card-header-rose .card-icon,
     .card-header-rose .card-text,
     .card-header-rose:not(.card-header-icon):not(.card-header-text),
