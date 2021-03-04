@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
   orderStatusChartColors = ['#49A54D', '#FF0000', '#3399FF'];
 
   newProductsList: Product[] = [];
+  newCustomersList: Customer[] = [];
 
   constructor(
     private productService: ProducserviceService,
@@ -47,6 +48,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getInfoData();
     this.newProducts();
+    this.newCustomers();
   }
 
   public getInfoData(): void
@@ -92,7 +94,7 @@ export class DashboardComponent implements OnInit {
     this.billService.getAll();
 
     // Active Customers.
-    this.customerService.getAll().subscribe((customers) => {
+    this.customerService.list$.subscribe((customers) => {
       this.infoData.activeCustomers = customers.filter(c => c.active).length;
 
       // const activePercent = Math.round((this.infoData.activeCustomers / customers.length) * 100);
@@ -103,7 +105,7 @@ export class DashboardComponent implements OnInit {
       //   ['Inactive', inactivePercent]
       //  ];
       //  this.customerChartData = data;
-      
+
     });
 
     // Order Status.
@@ -137,6 +139,17 @@ export class DashboardComponent implements OnInit {
     });
 
     this.productService.getAll();
+  }
+
+  public newCustomers(): void {
+    this.customerService.list$.subscribe((customers: Customer[]) => {
+      customers.sort((a: Customer, b: Customer) => {
+        return Number(a.id) - Number(b.id);
+      });
+      this.newCustomersList = customers;
+    });
+
+    this.customerService.getAll();
   }
 
 

@@ -5,15 +5,20 @@
     </div>
     <div class="card-body">
 
-      <google-chart
+      <!--mycomponent.component.html file -->
+      <!-- This is the container element of your chart-->
+
+    <google-chart style="width: 100%;"
         #chart
 
         [title]="changingChart.title"
         [type]="changingChart.type"
         [data]="data"
         [options]="changingChart.options"
-      >
-      </google-chart>
+        [dynamicResize]="true"
 
-    </div>
+    >
+    </google-chart>
+
+
 

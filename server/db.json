@@ -945,7 +945,7 @@
       "name": "00Test",
       "type": "Crime|Drama",
       "catID": "2",
-      "description": "hh",
+      "description": "hho",
       "price": 0,
       "featured": true,
       "active": false
@@ -982,20 +982,6 @@
     }
   ],
   "customers": [
-    {
-      "id": 1,
-      "first_name": "Marcellina",
-      "last_name": "Frearson",
-      "email": "mfrearson0@istockphoto.com",
-      "address": {
-        "zip": "6718",
-        "country": "Hungary",
-        "city": "Szeged",
-        "street": "37 Memorial Street",
-        "notes": "hac habitasse platea dictumst aliquam augue quam"
-      },
-      "active": false
-    },
     {
       "id": 2,
       "first_name": "Priscella",
@@ -1663,18 +1649,18 @@
       "active": false
     },
     {
-      "id": 50,
-      "first_name": "Prentice",
-      "last_name": "Whyard",
-      "email": "pwhyard1d@networkadvertising.org",
+      "id": 52,
+      "first_name": "ddd",
+      "last_name": "www",
+      "email": "bsv@freemal.hu",
       "address": {
-        "zip": "2404",
-        "country": "Hungary",
-        "city": "Dunaújváros",
-        "street": "74158 Menomonie Drive",
-        "notes": "vestibulum sed magna at nunc commodo"
+        "zip": 231,
+        "country": "EU",
+        "city": "Bp",
+        "street": "Nagy u. 23",
+        "notes": "mm"
       },
-      "active": true
+      "active": false
     }
   ],
   "orders": [
@@ -2019,7 +2005,7 @@
     {
       "id": 1,
       "orderID": 1,
-      "amount": 5,
+      "amount": 1,
       "status": "new"
     },
     {
@@ -2620,6 +2606,12 @@
       "id": 101,
       "orderID": 654,
       "amount": 233,
+      "status": "new"
+    },
+    {
+      "id": 102,
+      "orderID": -1,
+      "amount": 0,
       "status": "new"
     }
   ]
