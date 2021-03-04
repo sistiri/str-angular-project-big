@@ -1649,20 +1649,6 @@
       "active": false
     },
     {
-      "id": 50,
-      "first_name": "Prentice",
-      "last_name": "Whyard",
-      "email": "pwhyard1d@networkadvertising.org",
-      "address": {
-        "zip": "2404",
-        "country": "Hungary",
-        "city": "Dunaújváros",
-        "street": "74158 Menomonie Drive",
-        "notes": "vestibulum sed magna at nunc commodo"
-      },
-      "active": true
-    },
-    {
       "id": 52,
       "first_name": "ddd",
       "last_name": "www",
