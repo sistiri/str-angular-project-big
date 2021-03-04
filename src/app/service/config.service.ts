@@ -7,6 +7,5 @@ export class ConfigService {
 
   apiUrl: string = 'http://localhost:3000';
 
-
   constructor() { }
 }
