@@ -2613,12 +2613,6 @@
       "orderID": -1,
       "amount": 0,
       "status": "new"
-    },
-    {
-      "id": 103,
-      "orderID": 1,
-      "amount": 1,
-      "status": "new"
     }
   ]
 }

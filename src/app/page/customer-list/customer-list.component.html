@@ -25,9 +25,13 @@
                     (drop)="onHeaderDrop($event)">
                     {{ col.title }}
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                    <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
-                  </th>
+                     </th>
+                  </tr>
 
+                  <tr>
+                    <th *ngFor="let col of cols">
+                      <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+                    </th>
                   </tr>
 
               </thead>
@@ -36,16 +40,8 @@
                     currentPage: page,
                     totalItems:totalLength
                   }">
-                  <!--<td *ngFor="let col of cols">{{ customer[col.key] }}</td>-->
-                      <td>{{ customer.first_name }}</td>
-                      <td>{{ customer.last_name }}</td>
-                      <td>{{ customer.email }}</td>
-                      <td>{{ customer.address.zip }}</td>
-                      <td>{{customer.address.country}}</td>
-                      <td>{{customer.address.city}}</td>
-                      <td>{{customer.address.street}}</td>
-                      <td>{{customer.address.notes}}</td>
-                      <td>{{ customer.active }}</td>
+                  <td *ngFor="let col of cols">{{ getObjValue(customer, col.key) }}</td>
+
                     <td>
                           <div class="btn-group">
                               <button [routerLink]="[customer.id]" class="btn btn-warning">

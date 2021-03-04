@@ -1,37 +1,41 @@
-<div class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6">
 
-    <app-info-card [cardClass]="'card-header-success'" [icon]="'shopping_cart'" [title]="'Number of active products'"
-      [content]="'Active: ' + infoData.activeProductCount" [footer]="'Get More Space...'"></app-info-card>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
-  </div>
+        <app-info-card [cardClass]="'card-header-success'" [icon]="'shopping_cart'" [title]="'Number of active products'"
+          [content]="'Active: ' + infoData.activeProductCount" [footer]="'Get More Space...'">
+        </app-info-card>
+        <a routerLink="/product" class="stretched-link"></a>
+      </div>
 
-  <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
-    <app-info-card [cardClass]="'card-header-danger'" [icon]="'unpublished'" [title]="'Number of unpaid bills'"
-      [content]="'Unpaid: ' + infoData.unpaidBills" [footer]="'Get More Space...'"></app-info-card>
-
-
-  </div>
-
-  <div class="col-lg-3 col-md-6 col-sm-6">
-
-    <app-info-card [cardClass]="'card-header-danger'" [icon]="'paid'" [title]="'Amount of unpaid bills'"
-      [content]="'Unpaid: $' + infoData.unpaidAmount" [footer]="'Get More Space...'"></app-info-card>
+        <app-info-card [cardClass]="'card-header-danger'" [icon]="'unpublished'" [title]="'Number of unpaid bills'"
+          [content]="'Unpaid: ' + infoData.unpaidBills" [footer]="'Get More Space...'"></app-info-card>
 
 
-  </div>
+      </div>
 
-  <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
 
-    <app-info-card [cardClass]="'card-header-info'" [icon]="'person'" [title]="'Active customers'"
-      [content]="infoData.activeCustomers + ' Person'" [footer]="'Get More Space...'"></app-info-card>
+        <app-info-card [cardClass]="'card-header-danger'" [icon]="'paid'" [title]="'Amount of unpaid bills'"
+          [content]="'Unpaid: $' + infoData.unpaidAmount" [footer]="'Get More Space...'"></app-info-card>
 
 
-  </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
+
+        <app-info-card [cardClass]="'card-header-info'" [icon]="'person'" [title]="'Active customers'"
+          [content]="infoData.activeCustomers + ' Person'" [footer]="'Get More Space...'"></app-info-card>
+
+
+      </div>
+    </div>
 </div>
 
-
+<div class="container-fluid mt-5">
 <div class="row">
 
   <div class="col-xl-4 col-lg-12">
@@ -59,21 +63,24 @@
   </div>
 
 </div>
+  <div class="container-fluid">
+    <div class="row  h-100">
 
-<div class="row">
+      <div class="col-xl-6 col-lg-12">
+        <app-table-card [data]="newProductsList">
 
-  <div class="col-xl-6 col-lg-12">
-    <app-table-card [data]="newProductsList">
+        </app-table-card>
+        <!--<a routerLink="/product" class="stretched-link"></a>-->
+      </div>
 
-    </app-table-card>
-    <a routerLink="/product" class="stretched-link"></a>
+      <div class="col-xl-6 col-lg-12">
+        <app-customers-card [data]="newCustomersList">
+
+        </app-customers-card>
+        <!--<a routerLink="/customers" class="stretched-link"></a>-->
+      </div>
+    </div>
+
   </div>
-
-  <div class="col-xl-6 col-lg-12">
-    <app-customers-card [data]="newCustomersList">
-
-    </app-customers-card>
-    <a routerLink="/customers" class="stretched-link"></a>
-  </div>
-
 </div>
+

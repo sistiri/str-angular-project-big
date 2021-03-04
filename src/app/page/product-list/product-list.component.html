@@ -25,20 +25,16 @@
                         (drop)="onHeaderDrop($event)">
                         {{ col.title }}
                         <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
-                        <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+
                       </th>
                       </tr>
-                      <!--
+
                       <tr>
-                        <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('name', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('type', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('description', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('price', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('featured', $event)" class="form-control" type="text" placeholder="Filter"></th>
-                        <th><input (keyup)="onFilter('active', $event)" class="form-control" type="text" placeholder="Filter"></th>
+                        <th *ngFor="let col of cols">
+                          <input (keyup)="onFilter(col.key, $event)" class="form-control"  type="text" placeholder="Filter">
+                        </th>
                       </tr>
-                    -->
+
                   </thead>
                   <tbody>
                     <tr *ngFor="let product of productList$ | async | orderBy:order:reverse | paginate: { itemsPerPage: 10,
@@ -46,14 +42,7 @@
                           totalItems:totalLength
                         }">
                         <td *ngFor="let col of cols">{{ product[col.key] }}</td>
-                          <!-- <td>{{ product.id }}</td>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.type }}</td>
 
-                            <td>{{ product.description }}</td>
-                            <td>{{ product.price }}</td>
-                            <td>{{product.featured}}</td>
-                            <td>{{product.active}}</td>-->
                             <td>
                                 <div class="btn-group">
                                     <button [routerLink]="[product.id]" class="btn btn-warning">
