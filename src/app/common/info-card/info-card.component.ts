@@ -12,6 +12,7 @@ export class InfoCardComponent implements OnInit {
   @Input() title: string = 'title';
   @Input() content: string = '';
   @Input() footer: string = '';
+  @Input() link: string = '';
 
   constructor() { }
 
