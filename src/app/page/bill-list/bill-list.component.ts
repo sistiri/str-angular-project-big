@@ -33,6 +33,9 @@ export class BillListComponent implements OnInit {
     // private billService: billService ,
   ) { }
 
+    totalLength: any;
+    page: number = 1;
+
   onHeaderDragStart(event: DragEvent): void {
     this.lastDragKey = (event.target as HTMLTableHeaderCellElement).id;
   }
@@ -48,6 +51,9 @@ export class BillListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.billList$.subscribe(items => {
+    this.totalLength = items.length;
+    });
     this.billService.getAll();
     // this.customerService.getAll();
 
