@@ -38,7 +38,7 @@ onSave() {
 
     this.customerService.update(this.customer).subscribe((p: Customer) => {
       this.toastr.success('The item was saved successfully!');
-      this.router.navigate(['customer']);
+      this.router.navigate(['customers']);
     });
 
   } else {
