@@ -42,4 +42,10 @@ export class CustomerService {
   remove(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${this.httpURL}/${id}`);
   }
+
+  like(key: string, value: string, limit: number = 150): Observable<Customer[]> {
+    key = `${key}_like`;
+    const query = `${this.config.apiUrl}/${this.httpURL}?${key}=${value}&_limit=${limit}`;
+    return this.http.get<Customer[]>(query);
+  }
 }

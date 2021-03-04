@@ -14,19 +14,34 @@
           <table class="table table-hover mx-auto w-auto">
               <thead>
                   <tr>
-                      <th>FirstName</th>
-                      <th>LastName</th>
-                      <th>Email</th>
-                      <th>Zip</th>
-                      <th>Country</th>
-                      <th>City</th>
-                      <th>Street</th>
-                      <th>Notes</th>
-                      <th>Active</th>
+                    <th (click)="onColumnSelect('id')">#</th>
+                    <th (click)="onColumnSelect('first_name')">FirstName</th>
+                    <th (click)="onColumnSelect('last_name')">LastName</th>
+                    <th (click)="onColumnSelect('email')">Email</th>
+                    <th (click)="onColumnSelect('')">Zip</th>
+                    <th (click)="onColumnSelect('')">Country</th>
+                    <th (click)="onColumnSelect('')">City</th>
+                    <th (click)="onColumnSelect('')">Street</th>
+                    <th (click)="onColumnSelect('')">Notes</th>
+                    <th (click)="onColumnSelect('active')">Active</th>
+                  </tr>
+                  <tr>
+                    <th><input (keyup)="onFilter('id', $event)" class="form-control"  type="text" placeholder="Search ID"></th>
+                    <th><input (keyup)="onFilter('first_name', $event)" class="form-control"  type="text" placeholder="Search LastName"></th>
+                    <th><input (keyup)="onFilter('last_name', $event)" class="form-control"  type="text" placeholder="Search LastName"></th>
+                    <th><input (keyup)="onFilter('email', $event)" class="form-control"  type="text" placeholder="Search Email"></th>
+                    <th><input (keyup)="onFilter('', $event)" class="form-control"  type="text" placeholder="Search Zip"></th>
+                    <th><input (keyup)="onFilter('', $event)" class="form-control"  type="text" placeholder="Search Country"></th>
+                    <th><input (keyup)="onFilter('', $event)" class="form-control"  type="text" placeholder="Search City"></th>
+                    <th><input (keyup)="onFilter('', $event)" class="form-control"  type="text" placeholder="Search Street"></th>
+                    <th><input (keyup)="onFilter('', $event)" class="form-control"  type="text" placeholder="Search Notes"></th>
+                    <th><input (keyup)="onFilter('active', $event)" class="form-control"  type="text" placeholder="Search Status"></th>
+
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let customer of customerList$ | async">
+                  <tr *ngFor="let customer of customerList$ | async ">  <!-- | customerFilter:filterKey:phrase  | sorter:direction:columnKey */ -->
+                      <td>{{ customer.id }}</td>
                       <td>{{ customer.first_name }}</td>
                       <td>{{ customer.last_name }}</td>
                       <td>{{ customer.email }}</td>
