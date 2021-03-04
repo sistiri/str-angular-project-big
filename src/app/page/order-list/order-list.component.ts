@@ -28,7 +28,7 @@ export class OrderListComponent implements OnInit {
 
   cols: { title: string, key: string } [] = [
     { key: 'id', title: 'ID' },
-    { key: 'customerID', title: 'Customer ID' }, 
+    { key: 'customerID', title: 'Customer ID' },
     { key: 'productID', title: 'Product ID' },
     { key: 'amount', title: 'Amount' },
     { key: 'status', title: 'Status' },
@@ -44,7 +44,13 @@ export class OrderListComponent implements OnInit {
     private toastr: ToastrService,
    ) { }
 
+    totalLength: any;
+    page: number = 1;
+
   ngOnInit(): void {
+    this.orderList$.subscribe(items => {
+      this.totalLength = items.length;
+    });
     this.orderService.getAll();
   }
 
@@ -63,7 +69,7 @@ export class OrderListComponent implements OnInit {
     this.cols.splice(to, 0, temp);
   }
 
-  // Set Order method 
+  // Set Order method
   setOrder(value: string): void {
     if (this.order === value) {
       this.reverse = !this.reverse;
