@@ -13,11 +13,11 @@ export class EditOrderComponent implements OnInit {
 
   order: Order = new Order();
 
-  // orderStatus: { id: number, status: string }[] = [
-  //   { id: 0, status: 'New' },
-  //   { id: 1, status: 'Shipped' },
-  //   { id: 2, status: 'Paid' },
-  // ];
+   orderStatus: { id: number, status: string }[] = [
+    { id: 0, status: 'new' },
+     { id: 1, status: 'shipped' },
+    { id: 2, status: 'paid' },
+   ];
 
   constructor(
     private orderService: OrderService,
@@ -30,7 +30,7 @@ export class EditOrderComponent implements OnInit {
         this.orderService.get(params.id).forEach(order => {
         this.order = order;
       });
-      }      
+      }
     })
   }
 
