@@ -102,4 +102,14 @@ export class CustomerListComponent implements OnInit {
     });
   }
 
+  getObjValue(obj: any, key: string): any
+  {
+    let tmp = obj;
+    key.split('.').forEach(item => {
+      tmp = tmp[item];
+    });
+
+    return tmp;
+  }
+
 }
