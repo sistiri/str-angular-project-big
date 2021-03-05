@@ -44,6 +44,7 @@ import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { CustomersCardComponent } from './common/customers-card/customers-card.component';
+import { SumPipe } from './pipe/sum.pipe';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { CustomersCardComponent } from './common/customers-card/customers-card.c
     TableCardComponent,
     NewCustomerCardComponent,
     CustomersCardComponent,
+    SumPipe,
 
   ],
   imports: [

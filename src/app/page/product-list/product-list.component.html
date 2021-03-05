@@ -58,6 +58,19 @@
                                 </div>
                             </td>
                   </tbody>
+
+                  <tfoot>
+                    <tr>
+                      <td colspan="4" class="total text-right" *ngIf="(productList$ | async) as list">Total prices on the page: {{ list | orderBy:order:reverse | paginate: { itemsPerPage: 10,
+                        currentPage: page,
+                        totalItems:totalLength
+                      } | sum: 'price' }}
+
+                    </td>
+
+                    </tr>
+                  </tfoot>
+
               </table>
               <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
           </div>
