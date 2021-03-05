@@ -2,10 +2,10 @@
     <div class="col-md-8  mx-auto w-auto">
         <div class="card">
             <div class="card-header card-header-primary mb-3">
-                <h4 class="card-title">Edit Order</h4>
+                <h2 class="card-title">Edit Order</h2>
                 <p class="card-category">Change anything you'd like!</p>
             </div>
-            <form  #form="ngForm" action="">
+            <form #orderForm="ngForm" action="">
                 <div class="col-md-10 offset-1">
                     <!-- <div class="form-group">
                         <label for="id">ID</label>
@@ -14,40 +14,37 @@
                     <div class="form-group">
                         <label for="customerID">Customer ID</label>
                         <input [(ngModel)]="order.customerID" type="number" class="form-control" id="customerID"
-                            name="customerID"  required #customerID="ngModel">
-                        <div [hidden]="customerID.valid || customerID.pristine" class="text-danger">
+                            name="customerID" required [formControl]="customerIDControl">
+                        <div [hidden]="customerIDControl.valid || customerIDControl.pristine" class="text-danger">
                             Please choose a valid Customer ID!
                         </div>
                     </div>
-                    <!-- pattern='/^\d{1,2}$/' -->
                     <div class="form-group">
                         <label for="productID">Product ID</label>
                         <input [(ngModel)]="order.productID" type="number" class="form-control" id="productID"
-                            name="productID" required #productID="ngModel">
-                            <div [hidden]="productID.valid || productID.pristine" class="text-danger">
-                                Please choose a valid Product ID!
-                            </div>
+                            name="productID" required [formControl]="productIDControl">
+                        <div [hidden]="productIDControl.valid || productIDControl.pristine" class="text-danger">
+                            Please choose a valid Product ID!
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="amount">Amount</label>
                         <input [(ngModel)]="order.amount" type="number" class="form-control" id="amount" name="amount"
-                             required #amount="ngModel">
-                             <div [hidden]="amount.valid || amount.pristine" class="text-danger">
-                                Please set the amount!
-                             </div>
+                            required [formControl]="amountControl">
+                        <div [hidden]="amountControl.valid || amountControl.pristine" class="text-danger">
+                            Please set a valid amount!
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <!-- <select [(ngModel)]="order.status"  (change)="onTypeSelect($event)" class="form-control" id="status" name="status" required>
-                        <option *ngFor="let status of orderStatus" [value]="status.id">{{ orderStatus.status }}</option> -->
                         <select [(ngModel)]="order.status" class="form-control" id="status" name="status" required>
-                            <option value="new">New</option>
-                            <option value="shipped">Shipped</option>
-                            <option value="paid">Paid</option>
+                            <option *ngFor="let status of orderStatus" [value]="status.status">{{ status.status }}
+                            </option>
                         </select>
                     </div>
-                    <button (click)="onSubmit(order)" class="btn btn-primary pull-right mat-raised-button mt-5 mb-5"
-                        mat-raised-button="" type="submit" [disabled]="form.invalid">
+                    <button (click)="onSubmit(order)" class="btn btn-primary pull-right mat-raised-button mt-5 mb-4"
+                        mat-raised-button="" type="submit"
+                        [disabled]="orderForm.invalid || customerIDControl.invalid || productIDControl.invalid || amountControl.invalid ">
                         <span class="mat-button-wrapper">Submit</span>
                         <div class="mat-button-ripple mat-ripple" matripple=""></div>
                         <div class="mat-button-focus-overlay"></div>

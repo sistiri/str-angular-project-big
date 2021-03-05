@@ -52,14 +52,15 @@ export class StatusCardComponent implements OnInit {
   @ViewChild('chart', { static: false })
   public chart!: GoogleChartComponent;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
 
   ngOnInit(): void {
     this.changingChart.options.colors = this.colors;
     console.log(this.chart);
-  }
 
+
+  }
 
 
 

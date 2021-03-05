@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +42,9 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment.prod';
 import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CustomersCardComponent } from './common/customers-card/customers-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +64,7 @@ import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.
     StatusCardComponent,
     TableCardComponent,
     NewCustomerCardComponent,
+    CustomersCardComponent,
 
   ],
   imports: [
@@ -83,6 +87,9 @@ import { NewCustomerCardComponent } from './new-customer-card/new-customer-card.
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+
+    NgxPaginationModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }

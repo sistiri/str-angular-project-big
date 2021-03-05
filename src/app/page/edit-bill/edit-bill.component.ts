@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Bill } from 'src/app/model/bill';
@@ -15,6 +16,14 @@ export class EditBillComponent implements OnInit {
   status = ['bill.status'];
 
   bill: Bill = new Bill();
+
+  orderIDControll: FormControl= new FormControl (0, [Validators.min(1)]);
+  amountControll: FormControl= new FormControl (0, [Validators.min(1)]);
+
+  billStatus: { id: number, status: string }[] = [
+    { id: 0, status: 'new' },
+     { id: 1, status: 'paid' },
+    ];
 
   constructor(
     private billService: BillService,

@@ -2,8 +2,8 @@
   <div class="col-md-8 mx-auto w-auto">
     <div class="card">
       <div class="card-header card-header-warning mb-3">
-        <h4 class="card-title">Edit Bill</h4>
-        <p class="card-category">Bill Acount!</p>
+        <h2 class="card-title">Edit Bill</h2>
+        <p class="card-category">Change anything you'd like!</p>
       </div>
   <form #billForm="ngForm">
     <div class="col-md-10 offset-1">
@@ -11,23 +11,35 @@
     <div class="form-group">
       <label for="orderID">OrderID</label>
       <input [(ngModel)]='bill.orderID' type="number" class="form-control" id="orderID"
-       name="orderID" required aria-describedby="orderID" required #billOrderID="ngModel" min="1">
-      <div [hidden]="billOrderID.valid || billOrderID.pristine">The Order required!</div>
+       name="orderID" required aria-describedby="orderID" required  [formControl]="orderIDControll" >
+      <div [hidden]="orderIDControll.valid || orderIDControll.pristine" class="text-danger">Please choose a valid Order ID!</div>
     </div>
 
     <div class="form-group">
       <label for="amount">Amount</label>
       <input [(ngModel)]='bill.amount' type="number" class="form-control" id="amount"
-       name="amount" aria-describedby="amount" required #billAmount="ngModel" min="1">
-       <div [hidden]="billAmount.valid || billAmount.pristine">The amount required!</div>
+       name="amount" aria-describedby="amount" required [formControl]="amountControll">
+       <div [hidden]="amountControll.valid || amountControll.pristine" class="text-danger">Please set a valid amount!</div>
     </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+       <select [(ngModel)]="bill.status"   class="form-control" id="status" name="status" required>
+      <option *ngFor="let status of billStatus" [value]="status.status">{{ status.status }}</option>
+       </select>
+      <!-- <select [(ngModel)]="order.status" class="form-control" id="status" name="status" required>
+          <option value="new">New</option>
+          <option value="shipped">Shipped</option>
+          <option value="paid">Paid</option>
+      </select> -->
+  </div>
 
-  <button [disabled]="!billForm.form.valid" (click)="onSave()" type="submit"
-    class="btn btn-warning float-right" mat-raised-button=""><span class="mat-button-wrapper">Submit</span>
+  <button [disabled]="!billForm.valid || orderIDControll.invalid || amountControll.invalid" (click)="onSave()" type="submit"
+    class="btn btn-warning float-right mt-5 mb-4" mat-raised-button=""><span class="mat-button-wrapper">Submit</span>
     <div class="mat-button-ripple-mat-riple" matripple=""></div>
     <div class="mat-button-focus-overlay"></div>
   </button>
     </div>
+    <div class="clearfix"></div>
 </form>
 
 </div>

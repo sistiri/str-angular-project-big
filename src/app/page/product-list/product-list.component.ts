@@ -27,6 +27,18 @@ export class ProductListComponent implements OnInit {
     'active'
   ];
 
+  cols: { title: string, key: string } [] = [
+    { key: 'id', title: 'ID' },
+    { key: 'name', title: 'Name' },
+    { key: 'type', title: 'Type' },
+    { key: 'description', title: 'Description' },
+    { key: 'price', title: 'Price'},
+    { key: 'featured', title: 'Featured'},
+    { key: 'active', title: 'Active'}
+  ];
+
+  lastDragKey = '';
+
   order: string = 'name';
   reverse: boolean = false;
 
@@ -35,10 +47,29 @@ export class ProductListComponent implements OnInit {
     private toastr: ToastrService,
   ) { }
 
+  //Paginator
+  totalLength: any;
+  page: number = 1;
+
+  onHeaderDragStart(event: DragEvent): void {
+    this.lastDragKey = (event.target as HTMLTableHeaderCellElement).id;
+  }
+
+  onHeaderDrop(event: DragEvent): void {
+    event.preventDefault();
+    const targetID: string = (event.target as HTMLTableHeaderCellElement).id;
+    const from = this.cols.findIndex(col => col.key === this.lastDragKey);
+    const to = this.cols.findIndex(col => col.key === targetID);
+    const temp = Object.assign({}, this.cols[from]);
+    this.cols.splice(from, 1);
+    this.cols.splice(to, 0, temp);
+  }
+
   ngOnInit(): void {
 
     this.productList$.subscribe(items => {
       this.tableDataSource.data = items;
+      this.totalLength = items.length; //paginator
     });
 
     this.productService.getAll();
@@ -67,6 +98,5 @@ export class ProductListComponent implements OnInit {
       this.productList$.next(list);
     });
   }
-
 
 }
