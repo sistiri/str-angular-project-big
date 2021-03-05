@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-order',
@@ -13,9 +14,13 @@ export class EditOrderComponent implements OnInit {
 
   order: Order = new Order();
 
+  customerIDControl: FormControl= new FormControl (0, [Validators.min(1)]);
+  productIDControl: FormControl= new FormControl (0, [Validators.min(1)]);
+  amountControl: FormControl= new FormControl (0, [Validators.min(1)]);
+
    orderStatus: { id: number, status: string }[] = [
     { id: 0, status: 'new' },
-     { id: 1, status: 'shipped' },
+    { id: 1, status: 'shipped' },
     { id: 2, status: 'paid' },
    ];
 
