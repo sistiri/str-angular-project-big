@@ -41,11 +41,6 @@
                          <select [(ngModel)]="order.status"   class="form-control" id="status" name="status" required>
                         <option *ngFor="let status of orderStatus" [value]="status.status">{{ status.status }}</option>
                          </select>
-                        <!-- <select [(ngModel)]="order.status" class="form-control" id="status" name="status" required>
-                            <option value="new">New</option>
-                            <option value="shipped">Shipped</option>
-                            <option value="paid">Paid</option>
-                        </select> -->
                     </div>
                     <button (click)="onSubmit(order)" 
                         class="btn btn-primary pull-right mat-raised-button mt-5 mb-5"
