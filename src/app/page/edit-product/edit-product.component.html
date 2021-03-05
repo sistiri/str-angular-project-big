@@ -13,7 +13,7 @@
                 <label for="name">Name</label>
                 <input [(ngModel)]="product.name" type="text" class="form-control" id="name"
                 name="name" aria-describedby="name" required #productName="ngModel">
-                <div [hidden]="productName.valid || productName.pristine">
+                <div [hidden]="productName.valid || productName.pristine" class="text-danger">
                   Please choose a name.
                 </div>
               </div>
@@ -29,7 +29,7 @@
                 <textarea  [(ngModel)]="product.description" name="description"
                 class="form-control" id="description" rows="3" required #productDescription="ngModel"></textarea>
 
-                <div [hidden]="productDescription.valid || productDescription.pristine">
+                <div [hidden]="productDescription.valid || productDescription.pristine" class="text-danger">
                   Please choose description
                 </div>
 
@@ -38,7 +38,7 @@
                 <label for="price">Price</label>
                 <input [(ngModel)]="product.price" type="number" class="form-control" id="price"
                 name="price" aria-describedby="price" required #productPrice="ngModel" min="1">
-                <div [hidden]="productPrice.valid || productPrice.pristine">
+                <div [hidden]="productPrice.valid || productPrice.pristine" class="text-danger">
                   Please choose price
                 </div>
               </div>
