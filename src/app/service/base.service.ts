@@ -21,7 +21,7 @@ export class BaseService<T extends { id: number }> {
   }
 ​
   getAll(): void {
-    this.http.get<T[]>(`${this.config.apiUrl}/${this.entityName}`)
+    this.http.get<T[]>(`${this.config.apiUrl}/${this.entityName}.json`)
       .subscribe(
         list => this.list$.next(list),
         err => console.error(err)

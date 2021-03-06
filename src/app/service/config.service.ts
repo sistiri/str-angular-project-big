@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-  apiUrl: string = 'http://localhost:3000';
+  apiUrl: string = 'https://es-csapat-default-rtdb.europe-west1.firebasedatabase.app/';
 
   constructor() { }
 }
