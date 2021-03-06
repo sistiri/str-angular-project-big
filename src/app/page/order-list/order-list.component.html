@@ -77,7 +77,25 @@
                           currentPage: page,
                           totalItems:totalLength
                          }">
-                            <td *ngFor="let col of cols">{{ order[col.key] }}</td>
+
+                         <td *ngFor="let col of cols">
+                          <ng-container *ngIf="order[col.key] === 'new'">
+                            <span class="material-icons info">fiber_new</span>
+                          </ng-container>
+
+                          <ng-container *ngIf="order[col.key] === 'paid'">
+                            <span class="material-icons info">paid</span>
+                          </ng-container>
+
+                          <ng-container *ngIf="order[col.key] === 'shipped'">
+                            <span class="material-icons info">local_shipping</span>
+                          </ng-container>
+
+                          <ng-container *ngIf="order[col.key] !== 'new' && order[col.key] !== 'paid' && order[col.key] !== 'shipped'">
+                            {{ order[col.key] }}
+                          </ng-container>
+                        </td>
+
                             <!-- <td>{{ order.id }}</td>
                             <td>{{ order.customerID }}</td>
                             <td>{{ order.productID }}</td>

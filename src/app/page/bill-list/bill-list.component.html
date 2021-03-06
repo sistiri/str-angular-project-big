@@ -71,14 +71,19 @@
                       <tr *ngFor="let bill of billList$ | async | orderBy:order:reverse | paginate: { itemsPerPage: 10,
                           currentPage: page,
                           totalItems:totalLength}">
-                          <td *ngFor="let col of cols">{{ bill[col.key] }}</td>
-                          <!-- <td>{{ bill.orderID }}</td> -->
-                          <!-- <td>{{ bill.customerID }}</td> -->
-                          <!-- <td>{{ customer.name }}</td> -->
-                          <!-- <td>{{ bill.productID }}</td> -->
-                          <!-- <td>{{ product.name }}</td>
-                          <td>{{ bill.amount }}</td>
-                          <td>{{ bill.status }}</td> -->
+                          <td *ngFor="let col of cols">
+                            <ng-container *ngIf="bill[col.key] === 'new'">
+                              <span class="material-icons info">fiber_new</span>
+                            </ng-container>
+
+                            <ng-container *ngIf="bill[col.key] === 'paid'">
+                              <span class="material-icons info">paid</span>
+                            </ng-container>
+
+                            <ng-container *ngIf="bill[col.key] !== 'new' && bill[col.key] !== 'paid'">
+                              {{ bill[col.key] }}
+                            </ng-container>
+                          </td>
                           <td>
                               <div class="btn-group">
                                   <button  [routerLink]="[bill.id]" class="btn btn-warning">
@@ -96,6 +101,18 @@
                           </td>
                       </tr>
                   </tbody>
+
+                  <tfoot>
+                    <tr>
+                      <td colspan="4" class="total text-right" *ngIf="(billList$ | async) as list">Total amount on the page: {{ list | orderBy:order:reverse | paginate: { itemsPerPage: 10,
+                        currentPage: page,
+                        totalItems:totalLength
+                      } | sum: 'amount' }}
+
+                    </td>
+
+                    </tr>
+                  </tfoot>
 
               </table>
               <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
