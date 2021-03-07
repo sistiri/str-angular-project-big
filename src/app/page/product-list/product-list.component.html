@@ -41,8 +41,8 @@
                           currentPage: page,
                           totalItems:totalLength
                         }">
-                        <td *ngFor="let col of cols">
-                          <ng-container *ngIf="product[col.key] === false">
+                        <td *ngFor="let col of cols">{{product[col.key]}}
+                        <!--  <ng-container *ngIf="product[col.key] === false">
                             <span class="material-icons info">check_box_outline_blank</span>
                           </ng-container>
 
@@ -52,7 +52,7 @@
 
                           <ng-container *ngIf="product[col.key] !== true && product[col.key] !== false">
                             {{ product[col.key] }}
-                          </ng-container>
+                          </ng-container>-->
                         </td>
 
                             <td>

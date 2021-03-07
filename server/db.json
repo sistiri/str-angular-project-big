@@ -517,7 +517,7 @@
       "catID": 1,
       "description": "erat volutpat in congue etiam justo etiam pretium iaculis justo",
       "price": 12,
-      "featured": false,
+      "featured": true,
       "active": true
     },
     {
@@ -948,7 +948,7 @@
       "description": "hho",
       "price": 0,
       "featured": true,
-      "active": false
+      "active": true
     },
     {
       "id": 101,
@@ -957,7 +957,7 @@
       "catID": "1",
       "description": "ddd",
       "price": "1200",
-      "featured": true,
+      "featured": false,
       "active": true
     },
     {
