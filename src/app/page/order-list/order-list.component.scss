@@ -6,17 +6,22 @@ thead th {
     span {
       visibility: hidden;
     }
-  
+
     &:hover {
       background-color:#F5F5F5;
     }
-  
+
     &.active {
       color: #000;
-  
+
       span {
         visibility: visible;
       }
     }
-  
+
   }
+
+  .info {
+    color: #2199E8;
+  }
+

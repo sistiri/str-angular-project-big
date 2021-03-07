@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {SumPipe} from '../../pipe/sum.pipe';
 
 @Component({
   selector: 'app-product-list',
